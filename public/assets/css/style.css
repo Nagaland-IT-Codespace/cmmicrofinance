@@ -151,14 +151,14 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 85px;
 }
 
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -318,7 +318,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #fff;
@@ -437,7 +437,7 @@ h6 {
 
 #hero:before {
   content: "";
-  background: rgba(13, 20, 26, 0.7);
+  background: rgb(13 20 26 / 28%);
   position: absolute;
   bottom: 0;
   top: 0;
