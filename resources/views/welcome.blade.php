@@ -258,7 +258,7 @@
     </section><!-- End Features Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    <!-- <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
     <div class="section-title">
@@ -323,8 +323,9 @@
 
       </div>
 
-      </div>
-    </section><!-- End Contact Section -->
+      </div> -->
+    <!-- </section> -->
+    <!-- End Contact Section -->
 
   </main><!-- End #main -->
 
@@ -344,13 +345,13 @@
                 <strong>Phone:</strong> <br>
                 <strong>Email:</strong> cmmfi@nagaland.gov.in<br>
               </p>
-              <div class="social-links mt-3">
+              <!-- <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                 <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+              </div> -->
             </div>
           </div>
 
