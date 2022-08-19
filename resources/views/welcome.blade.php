@@ -369,9 +369,12 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Related links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://agriculture.nagaland.gov.in" target="_blank">Agriculture Department</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.nabard.org/content.aspx?id=76" target="_blank">NABARD</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://nagafarmer.nagaland.gov.in/node/38" target="_blank">Agriculture Department</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://hortidept.nagaland.gov.in" target="_blank">Horticulture Department</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://fisheries.nagaland.gov.in" target="_blank">Fisheries Department</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://industry.nagaland.gov.in" target="_blank">Industry Department</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://nsrlm.nagaland.gov.in" target="_blank">NSRLM Nagaland</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://nagaland.gov.in" target="_blank">Nagaland State Portal</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://india.gov.in" target="_blank">National Portal</a></li>
             </ul>
