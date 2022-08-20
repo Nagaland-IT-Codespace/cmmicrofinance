@@ -49,6 +49,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#about">Downloads</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="getstarted scrollto" href="#">Login</a></li>
         </ul>
@@ -256,6 +257,35 @@
 
       </div>
     </section><!-- End Features Section -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Downloads</h2>
+          <p>Application Form Downloads</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="bi bi-card-checklist"></i>
+              <h4><a href="<?php echo e(asset('docs/Annexure VII.pdf')); ?>">Annexure VII</a></h4>
+              <p>Application format for Project Proposal for individual/SHG/FPO</p>
+            </div>
+          </div>
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="bi bi-card-checklist"></i>
+              <h4><a href="<?php echo e(asset('Application-form-eco-carp.pdf')); ?>">Application Form</a></h4>
+              <p>For Eco-Carp Hatchery</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
 
     <!-- ======= Contact Section ======= -->
     <!-- <section id="contact" class="contact">
@@ -369,9 +399,12 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Related links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://agriculture.nagaland.gov.in" target="_blank">Agriculture Department</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.nabard.org/content.aspx?id=76" target="_blank">NABARD</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://nagafarmer.nagaland.gov.in/node/38" target="_blank">Agriculture Department</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://hortidept.nagaland.gov.in" target="_blank">Horticulture Department</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://fisheries.nagaland.gov.in" target="_blank">Fisheries Department</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://industry.nagaland.gov.in" target="_blank">Industry Department</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://nsrlm.nagaland.gov.in" target="_blank">NSRLM Nagaland</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://nagaland.gov.in" target="_blank">Nagaland State Portal</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://india.gov.in" target="_blank">National Portal</a></li>
             </ul>

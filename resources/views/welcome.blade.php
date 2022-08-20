@@ -49,6 +49,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#about">Downloads</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="getstarted scrollto" href="#">Login</a></li>
         </ul>
@@ -256,6 +257,35 @@
 
       </div>
     </section><!-- End Features Section -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Downloads</h2>
+          <p>Application Form Downloads</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="bi bi-card-checklist"></i>
+              <h4><a href="{{asset('docs/Annexure VII.pdf')}}">Annexure VII</a></h4>
+              <p>Application format for Project Proposal for individual/SHG/FPO</p>
+            </div>
+          </div>
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="bi bi-card-checklist"></i>
+              <h4><a href="{{asset('docs/Application-form-eco-carp.pdf')}}">Application Form</a></h4>
+              <p>For Eco-Carp Hatchery</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
 
     <!-- ======= Contact Section ======= -->
     <!-- <section id="contact" class="contact">
