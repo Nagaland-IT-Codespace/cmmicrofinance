@@ -25,7 +25,7 @@
               <td>{{ $item->name }}</td>
               <td>{{ $item->mobile }}</td>
               <td>{{ $item->email }}</td>
-              <td>{{ $item->scheme }}</td>
+              <td>{{ $item->scheme->scheme_name }}</td>
               <td>{{ $item->message }}</td>
               <td>
                 <a href="{{ route('grievance.show', $item->id) }}" class="btn btn-sm btn-danger">View</a>
