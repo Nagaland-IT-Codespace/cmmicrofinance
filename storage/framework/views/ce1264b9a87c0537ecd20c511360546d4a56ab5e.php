@@ -3,7 +3,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header bg-primary">
-        Add New User
+        Add User Details
       </div>
       <div class="card-body">
           <form class="" action="<?php echo e(route('userMaster.store')); ?>" method="post">
@@ -60,7 +60,7 @@
             </div>
 
             <hr>
-            <button type="submit" class="btn btn-sm btn-primary">Create User</button>
+            <button type="submit" class="btn btn-sm btn-primary">Create New User</button>
           </form>
 
 
@@ -70,18 +70,6 @@
 
 </div>
 
-<?php if(Session::has('user-added')): ?>
-<script type="text/javascript">
-	$(document).ready(function(){
-		new PNotify({
-			title: 'Success',
-			text: 'New User Created',
-			type: 'success',
-			shadow: true
-		});
-	});
-</script>
-<?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/users/add.blade.php ENDPATH**/ ?>

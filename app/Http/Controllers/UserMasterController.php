@@ -8,6 +8,7 @@ use App\Models\DistrictMaster;
 use App\Models\DeptMaster;
 use Auth;
 use Session;
+use Hash;
 
 class UserMasterController extends Controller
 {
