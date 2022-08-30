@@ -84,7 +84,7 @@
 <div id="editSchemeModal" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
 	<section class="card">
 		<header class="card-header">
-			<h2 class="card-title">Add Scheme</h2>
+			<h2 class="card-title">Edit Scheme</h2>
 		</header>
 		<div class="card-body">
 			<div class="modal-wrapper">

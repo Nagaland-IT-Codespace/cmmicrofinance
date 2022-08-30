@@ -79,7 +79,11 @@ class DeptMasterController extends Controller
      */
     public function update(Request $request, DeptMaster $deptMaster)
     {
-        //
+      $deptMaster->update([
+        'name' => $request->name,
+      ]);
+      Session::flash('dept updated',1);
+      return redirect()->back();
     }
 
     /**
