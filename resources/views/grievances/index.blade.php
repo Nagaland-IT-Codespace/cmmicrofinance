@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
 @section('content')
-{{-- List Grievances in data table --}}
+{{-- List Grievances in paginate --}}
 
 @endsection

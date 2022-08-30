@@ -20,13 +20,13 @@ class GrievanceController extends Controller
         //
         $user = Auth::user();
         if ($user->role == 'ADMIN') {
-            $grievances = Grievance::all();
+            $grievances = Grievance::all()->paginate(10);
             return view('grievance.index', compact('grievances'));
         } else if ($user->role == 'DEPT') {
-            $grievances = Grievance::where('dept_id', $user->dept)->get();
+            $grievances = Grievance::where('dept_id', $user->dept)->get()->paginate(10);;
             return view('grievance.index', compact('grievances'));
         } else if ($user->role == 'DC') {
-            $grievances = Grievance::where('district_id', $user->district)->get();
+            $grievances = Grievance::where('district_id', $user->district)->get()->paginate(10);;
             return view('grievance.index', compact('grievances'));
         } else {
             return view('grievance.index');
