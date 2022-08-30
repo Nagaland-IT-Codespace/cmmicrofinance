@@ -18,7 +18,7 @@
             <p><b>Message: </b>{{ $data->message }}</p>
           </div>
           <hr>
-          <a href="#" class="btn btn-sm btn-primary">Reply</a> | <a href="#" class="btn btn-sm btn-danger">Back</a>
+          <a href="#" class="btn btn-sm btn-primary">Reply</a> | <a href="{{route('grievance.index')}}" class="btn btn-sm btn-danger">Back</a>
         </div>
 
 

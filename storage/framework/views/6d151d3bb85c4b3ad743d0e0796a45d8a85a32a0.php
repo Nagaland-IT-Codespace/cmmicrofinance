@@ -9,7 +9,7 @@
         </div>
         <div class="widget-summary-col">
           <div class="summary">
-            <h4 class="title">Support Questions</h4>
+            <h4 class="title">Total No of Benificiaries</h4>
             <div class="info">
               <strong class="amount">1281</strong>
             </div>
@@ -33,7 +33,7 @@
         </div>
         <div class="widget-summary-col">
           <div class="summary">
-            <h4 class="title">Support Questions</h4>
+            <h4 class="title">Total Amount allocated</h4>
             <div class="info">
               <strong class="amount">1281</strong>
             </div>
@@ -57,9 +57,9 @@
         </div>
         <div class="widget-summary-col">
           <div class="summary">
-            <h4 class="title">Total Fund</h4>
+            <h4 class="title">No of schemes </h4>
             <div class="info">
-              <strong class="amount">1281</strong>
+              <strong class="amount">9</strong>
             </div>
           </div>
           <div class="summary-footer">
@@ -81,7 +81,7 @@
         </div>
         <div class="widget-summary-col">
           <div class="summary">
-            <h4 class="title">Fund Allocated</h4>
+            <h4 class="title">Pending Benificiaries</h4>
             <div class="info">
               <strong class="amount">1281</strong>
             </div>
