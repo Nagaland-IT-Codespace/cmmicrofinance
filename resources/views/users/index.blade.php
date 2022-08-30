@@ -41,4 +41,30 @@
     </div>
   </div>
 </div>
+
+@if(Session::has('user-added'))
+<script type="text/javascript">
+	$(document).ready(function(){
+		new PNotify({
+			title: 'Success',
+			text: 'New User Created.',
+			type: 'success',
+			shadow: true
+		});
+	});
+</script>
+@endif
+
+@if(Session::has('user-updated'))
+<script type="text/javascript">
+	$(document).ready(function(){
+		new PNotify({
+			title: 'Success',
+			text: 'User Details Updated.',
+			type: 'success',
+			shadow: true
+		});
+	});
+</script>
+@endif
 @endsection
