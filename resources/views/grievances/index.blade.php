@@ -5,7 +5,6 @@
     <div class="card">
       <div class="card-header">
         <span class="card-title">Grievances</span>
-        <a href="{{ route('userMaster.create') }}"class="btn btn-primary btn-sm" style="float:right">Add User</a>
       </div>
       <div class="card-body">
         <table class="table table-striped table-sm datatable">
