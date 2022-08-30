@@ -8,7 +8,7 @@
         <a href="{{ route('userMaster.create') }}"class="btn btn-primary btn-sm" style="float:right">Add User</a>
       </div>
       <div class="card-body">
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm datatable">
           <thead>
             <tr>
               <th>Name</th>

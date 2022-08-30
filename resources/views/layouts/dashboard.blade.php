@@ -29,6 +29,7 @@
 		<link rel="stylesheet" href="{{asset('dashboardAssets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css')}}" />
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
+
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="{{asset('dashboardAssets/css/theme.css')}}" />
 
@@ -190,6 +191,11 @@
 			});
 	  } );
 	  </script>
+		<script type="text/javascript">
+		$(document).ready(function () {
+				$('.datatable').DataTable();
+		});
+		</script>
 		@livewireScripts
 	</body>
 </html>

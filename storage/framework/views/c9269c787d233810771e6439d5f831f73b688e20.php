@@ -4,11 +4,11 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <span class="card-title">Scheme Master</span>
+        <span class="card-title">Users</span>
         <a href="<?php echo e(route('userMaster.create')); ?>"class="btn btn-primary btn-sm" style="float:right">Add User</a>
       </div>
       <div class="card-body">
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm datatable">
           <thead>
             <tr>
               <th>Name</th>
