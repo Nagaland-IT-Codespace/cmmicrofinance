@@ -21,6 +21,8 @@ Route::get('/dashboard', function () {
 //Non Authenticated Routes
 Route::get('/', [App\Http\Controllers\PageController::class, 'welcome'])->name('/');
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contact');
+Route::resource('grievance', App\Http\Controllers\GrievanceController::class);
+
 
 //Authenticated Page Routes
 Route::group(['middleware' => ['auth']],function()
@@ -29,7 +31,6 @@ Route::group(['middleware' => ['auth']],function()
     Route::resource('schemeMaster', App\Http\Controllers\SchemeMasterController::class);
     Route::resource('deptMaster', App\Http\Controllers\DeptMasterController::class);
     Route::resource('districtMaster', App\Http\Controllers\DistrictMasterController::class);
-    Route::resource('grievance', App\Http\Controllers\GrievanceController::class);
     Route::resource('userMaster', App\Http\Controllers\UserMasterController::class);
 
 });
