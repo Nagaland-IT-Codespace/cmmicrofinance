@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']],function()
     Route::resource('deptMaster', App\Http\Controllers\DeptMasterController::class);
     Route::resource('districtMaster', App\Http\Controllers\DistrictMasterController::class);
     Route::resource('userMaster', App\Http\Controllers\UserMasterController::class);
+    Route::resource('applicationForm', App\Http\Controllers\ApplicationFormController::class);
 
 });
 
