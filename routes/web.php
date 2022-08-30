@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 //Non Authenticated Routes
 Route::get('/', [App\Http\Controllers\PageController::class, 'welcome'])->name('/');
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contact');
