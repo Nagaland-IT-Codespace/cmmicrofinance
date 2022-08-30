@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\DistrictMaster;
+use App\Models\DeptMaster;
+use Auth;
+use Session;
+use Hash;
 
 class UserMasterController extends Controller
 {
@@ -13,7 +19,10 @@ class UserMasterController extends Controller
      */
     public function index()
     {
-        //
+      $data = User::all();
+      return view('users.index', [
+        'data' => $data,
+      ]);
     }
 
     /**
@@ -23,7 +32,13 @@ class UserMasterController extends Controller
      */
     public function create()
     {
-        //
+        $districts = DistrictMaster::orderBy('name', 'ASC')->get();
+        $depts = DeptMaster::orderBy('name', 'ASC')->get();
+
+        return view('users.add', [
+          'districts' => $districts,
+          'depts' => $depts,
+        ]);
     }
 
     /**
@@ -34,7 +49,18 @@ class UserMasterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'mobile' => $request->mobile,
+        'password' => Hash::make('Password123#'),
+        'role' => $request->role,
+        'dept' => $request->dept,
+        'district' => $request->district,
+      ]);
+
+      Session::flash('user-added', 1);
+      return redirect()->route('userMaster.index');
     }
 
     /**
@@ -56,7 +82,15 @@ class UserMasterController extends Controller
      */
     public function edit($id)
     {
-        //
+      $data = User::find($id);
+      $districts = DistrictMaster::orderBy('name', 'ASC')->get();
+      $depts = DeptMaster::orderBy('name', 'ASC')->get();
+
+      return view('users.edit', [
+        'districts' => $districts,
+        'depts' => $depts,
+        'data' => $data,
+      ]);
     }
 
     /**
@@ -68,7 +102,18 @@ class UserMasterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $target = User::find($id);
+        $target->update([
+          'name' => $request->name,
+          'email' => $request->email,
+          'mobile' => $request->mobile,
+          'role' => $request->role,
+          'dept' => $request->dept,
+          'district' => $request->district,
+        ]);
+
+        Session::flash('user-updated', 1);
+        return redirect()->route('userMaster.index');
     }
 
     /**

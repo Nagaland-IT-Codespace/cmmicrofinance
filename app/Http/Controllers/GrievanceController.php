@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grievance;
+
 use Illuminate\Http\Request;
+use Session;
 
 class GrievanceController extends Controller
 {
@@ -35,7 +37,20 @@ class GrievanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate request and store Grievance
+        $this->validate($request, [
+            'name' => 'required',
+            'mobile' => 'required',
+            'email' => 'required',
+            'scheme_id' => 'required',
+            'dept_id' => 'required',
+            'district_id' => 'required',
+            'message' => 'required',
+
+        ]);
+        $grivance = Grievance::create($request->all());
+        Session::flash('Grievance added', 'Grievance successfully added!');
+        return redirect()->back();
     }
 
     /**
