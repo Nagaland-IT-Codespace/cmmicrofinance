@@ -49,7 +49,7 @@ class GrievanceController extends Controller
 
         ]);
         $grivance = Grievance::create($request->all());
-        Session::flash('flash_message', 'Grievance successfully added!');
+        Session::flash('Grievance added', 'Grievance successfully added!');
         return redirect()->back();
     }
 
