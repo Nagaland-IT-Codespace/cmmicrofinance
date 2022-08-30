@@ -14,7 +14,7 @@ class SchemeMasterController extends Controller
      */
     public function index()
     {
-        //
+        return view('schemes.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class SchemeMasterController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

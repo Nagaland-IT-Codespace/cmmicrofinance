@@ -17,9 +17,27 @@
           </a>
         </li>
         <li>
-          <a class="nav-link" href="{{route('schemeMaster.index')}}">
+          <a class="nav-link" href="{{route('userMaster.index')}}">
             <i class='bx bx-list-plus'></i>
-            <span>Institution Master</span>
+            <span>User Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="{{route('deptMaster.index')}}">
+            <i class='bx bx-list-plus'></i>
+            <span>Department Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="{{route('districtMaster.index')}}">
+            <i class='bx bx-list-plus'></i>
+            <span>District Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="{{route('grievance.index')}}">
+            <i class='bx bx-list-plus'></i>
+            <span>Grievances</span>
           </a>
         </li>
         @endif
