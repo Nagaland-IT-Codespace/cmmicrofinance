@@ -1,14 +1,15 @@
 @extends('layouts.dashboard')
 @section('content')
-
+<div class="row">
+  @include('dashboardPartials.card_data')
+  @include('dashboardPartials.department_data')
+</div>
 
 
 
 
 
 <!-- script for the search function -->
-
-
 @if(Session::has('Scheme Inactive'))
 <script type="text/javascript">
 	$(document).ready(function(){

@@ -5,7 +5,7 @@
 		<!-- Basic -->
 		<meta charset="UTF-8">
 
-		<title>Scholarship Portal: Nagaland</title>
+		<title>Chief Minister's Micro Finance Scheme: Government of Nagaland</title>
 		<meta name="keywords" content="scholarship,nagaland,government of nagaland,scholarship portal" />
 		<meta name="description" content="Official Common Scholarship Portal of Nagaland">
 		<meta name="author" content="Kezeneilhou Mhasi">
@@ -52,7 +52,7 @@
 			<header class="header">
 				<div class="logo-container">
 					<a href="{{url('/')}}" class="logo">
-						<img src="{{asset('dashboardAssets/img/logo.png')}}" height="50" alt="Porto Admin" />
+						<a href="/" class="logo"><img src="{{asset('assets/img/cmmfi-logo-b.png')}}" height="50"/></a>
 					</a>
 
 					<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
