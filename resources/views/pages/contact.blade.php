@@ -17,34 +17,76 @@
                 </div>
                 <div class="col-md-8">
                     <!-- Create Grievance form below -->
-                    <div class="card shadow">
+                    <div class="card shadow rounded">
                         <div class="card-header">
                             <h4>Create Grievance</h4>
                         </div>
                         <div class="card-body">
-                            <form  method="POST">
+                            <form action="{{ route('grievance.store') }}" method="POST">
                                 @csrf
+                                {{-- Name --}}
                                 <div class="form-group">
-                                    <label for="grievance_type">Grievance Type</label>
-                                    <select name="grievance_type" id="grievance_type" class="form-control">
-                                        <option value="">Select Grievance Type</option>
-                                        <option value="1">Complaint</option>
-                                        <option value="2">Suggestion</option>
-                                        <option value="3">Query</option>
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Enter Name">
+                                </div>
+                                {{-- Email --}}
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Enter Email">
+                                </div>
+                                {{-- Mobile --}}
+                                <div class="form-group">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="text" class="form-control" id="mobile" name="mobile"
+                                        placeholder="Enter Mobile">
+                                </div>
+                                {{-- seelct scheme --}}
+                                <div class="form-group">
+                                    <label for="scheme">Select Scheme</label>
+                                    <select class="form-control" id="scheme_id" name="scheme_id">
+                                        <option value="">Select Scheme</option>
+                                        @foreach ($schemes as $scheme)
+                                            <option value="{{ $scheme->id }}">{{ $scheme->scheme_name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
+                                {{-- Select Department --}}
                                 <div class="form-group">
-                                    <label for="grievance_description">Grievance Description</label>
-                                    <textarea name="grievance_description" id="grievance_description" cols="30" rows="10" class="form-control"></textarea>
+                                    <label for="department">Select Department</label>
+                                    <select class="form-control" id="dept_id" name="dept_id">
+                                        <option value="">Select Department</option>
+                                        @foreach ($departments as $department)
+                                            <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
+                                {{-- Select District --}}
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <label for="district">Select District</label>
+                                    <select class="form-control" id="district_id" name="district_id">
+                                        <option value="">Select District</option>
+                                        @foreach ($districts as $district)
+                                            <option value="{{ $district->id }}">{{ $district->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                {{-- Message --}}
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <button class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 @endsection

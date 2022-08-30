@@ -9,15 +9,15 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <?php if(Auth::user()->role == 'SAdmin'): ?>
+        <?php if(Auth::user()->role == 'ADMIN'): ?>
         <li>
-          <a class="nav-link" href="<?php echo e(route('schemeMaster')); ?>">
+          <a class="nav-link" href="<?php echo e(route('schemeMaster.index')); ?>">
             <i class='bx bx-list-plus'></i>
             <span>Scheme Master</span>
           </a>
         </li>
         <li>
-          <a class="nav-link" href="<?php echo e(route('institutionMaster')); ?>">
+          <a class="nav-link" href="<?php echo e(route('schemeMaster.index')); ?>">
             <i class='bx bx-list-plus'></i>
             <span>Institution Master</span>
           </a>
