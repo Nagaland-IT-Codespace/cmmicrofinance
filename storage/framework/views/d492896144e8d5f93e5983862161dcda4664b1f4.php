@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="fixed">
+<html class="fixed sidebar-left-collapsed">
 	<head>
 
 		<!-- Basic -->
@@ -46,7 +46,7 @@
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		@livewireStyles
 	</head>
-	<body>
+	<body > 
 		<section class="body">
 
 			<!-- start: header -->
@@ -196,8 +196,8 @@
 		$(document).ready(function () {
 				$('.datatable').DataTable();
 		});
-		</script>
-		@livewireScripts
+		</script>	
+		@livewireScripts	
 	</body>
 </html>
 <?php /**PATH /Users/mozhui/Personal/playground/cmmicrofinance/resources/views/layouts/dashboard.blade.php ENDPATH**/ ?>
