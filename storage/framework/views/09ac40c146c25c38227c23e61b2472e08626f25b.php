@@ -17,9 +17,27 @@
           </a>
         </li>
         <li>
-          <a class="nav-link" href="<?php echo e(route('schemeMaster.index')); ?>">
+          <a class="nav-link" href="<?php echo e(route('userMaster.index')); ?>">
             <i class='bx bx-list-plus'></i>
-            <span>Institution Master</span>
+            <span>User Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="<?php echo e(route('deptMaster.index')); ?>">
+            <i class='bx bx-list-plus'></i>
+            <span>Department Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="<?php echo e(route('districtMaster.index')); ?>">
+            <i class='bx bx-list-plus'></i>
+            <span>District Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="<?php echo e(route('grievance.index')); ?>">
+            <i class='bx bx-list-plus'></i>
+            <span>Grievances</span>
           </a>
         </li>
         <?php endif; ?>
