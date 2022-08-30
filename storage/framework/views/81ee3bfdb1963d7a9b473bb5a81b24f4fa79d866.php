@@ -1,5 +1,4 @@
-@extends('layouts.page')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section id="about-boxes" class="about-boxes">
         <div class="container" data-aos="fade-up">
             <div class="row">
@@ -23,7 +22,7 @@
                         </div>
                         <div class="card-body">
                             <form  method="POST">
-                                @csrf
+                                <?php echo csrf_field(); ?>
                                 <div class="form-group">
                                     <label for="grievance_type">Grievance Type</label>
                                     <select name="grievance_type" id="grievance_type" class="form-control">
@@ -47,4 +46,6 @@
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/mozhui/Personal/playground/cmmicrofinance/resources/views/pages/contact.blade.php ENDPATH**/ ?>

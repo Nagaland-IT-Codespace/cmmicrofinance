@@ -9,15 +9,15 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <?php if(Auth::user()->role == 'ADMIN'): ?>
+        <?php if(Auth::user()->role == 'SAdmin'): ?>
         <li>
-          <a class="nav-link" href="<?php echo e(route('schemeMaster.index')); ?>">
+          <a class="nav-link" href="<?php echo e(route('schemeMaster')); ?>">
             <i class='bx bx-list-plus'></i>
             <span>Scheme Master</span>
           </a>
         </li>
         <li>
-          <a class="nav-link" href="<?php echo e(route('schemeMaster.index')); ?>">
+          <a class="nav-link" href="<?php echo e(route('institutionMaster')); ?>">
             <i class='bx bx-list-plus'></i>
             <span>Institution Master</span>
           </a>
@@ -138,4 +138,4 @@
   </script>
 
 </div>
-<?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/dashboardPartials/menu.blade.php ENDPATH**/ ?>
+<?php /**PATH /Users/mozhui/Personal/playground/cmmicrofinance/resources/views/dashboardPartials/menu.blade.php ENDPATH**/ ?>

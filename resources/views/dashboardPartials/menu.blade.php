@@ -11,13 +11,13 @@
         </li>
         @if(Auth::user()->role == 'ADMIN')
         <li>
-          <a class="nav-link" href="{{route('schemeMaster')}}">
+          <a class="nav-link" href="{{route('schemeMaster.index')}}">
             <i class='bx bx-list-plus'></i>
             <span>Scheme Master</span>
           </a>
         </li>
         <li>
-          <a class="nav-link" href="{{route('institutionMaster')}}">
+          <a class="nav-link" href="{{route('schemeMaster.index')}}">
             <i class='bx bx-list-plus'></i>
             <span>Institution Master</span>
           </a>
