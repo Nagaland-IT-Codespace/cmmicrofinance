@@ -367,7 +367,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer contact">
     <div class="footer-top">
       <div class="container">
         <div class="row">
