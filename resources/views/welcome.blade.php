@@ -26,6 +26,7 @@
     <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
       <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
@@ -474,11 +475,36 @@
         </div>
     </footer><!-- End Footer -->
 
+    <script>
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+      }
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0px";
+      }
+
+
+    </script>
+
+
+    <div id="mySidenav" class="sidenav">
+      <i class='bx bx-x' onclick="closeNav()" style="float:right;cursor:pointer;margin-right:20px"></i>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+    <span style="font-size:30px;cursor:pointer" id="access-btn" onclick="openNav()"><i class='bx bx-accessibility'></i></span>
+
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
+    <script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
     <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.j') }}s"></script>
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -486,14 +512,21 @@
     <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    {{-- Swal if Session has --}}
-
-
-
-
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).click(function(e){
+          if ($(e.target).is('#mySidenav,#mySidenav *')) {
+              return;
+          }
+          else
+          {
+            document.getElementById("mySidenav").style.width = "0px";
+          }
+      });
+    });
+    </script>
 </body>
 
 </html>
