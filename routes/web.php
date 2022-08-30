@@ -22,5 +22,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
+//Authenticated Page Routes
+Route::group(['middleware' => ['auth']],function()
+{
+    Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'homeRedirector' ])->name('dashboard');
+    Route::resource('schemeMaster', App\Http\Controllers\SchemeMasterController::class);
+
+});
+
 Route::view('contact','pages.contact')->name('contact');
 require __DIR__.'/auth.php';
