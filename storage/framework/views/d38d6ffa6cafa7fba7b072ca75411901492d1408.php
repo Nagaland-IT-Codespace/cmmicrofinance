@@ -281,6 +281,13 @@
               <p>For Eco-Carp Hatchery</p>
             </div>
           </div>
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="bi bi-card-checklist"></i>
+              <h4><a href="<?php echo e(asset('docs/CHIEF MINISTER’S MICRO FINANCE INITIATIVE Booklet.pdf')); ?>">Booklet</a></h4>
+              <p>Chief Minister's Mirco Finance Inititiave Booklet</p>
+            </div>
+          </div>
 
         </div>
 
