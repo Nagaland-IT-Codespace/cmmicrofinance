@@ -58,9 +58,10 @@ class SchemeMasterController extends Controller
      * @param  \App\Models\SchemeMaster  $schemeMaster
      * @return \Illuminate\Http\Response
      */
-    public function show(SchemeMaster $schemeMaster)
+    public function show($id)
     {
-        //
+        $data = SchemeMaster::where('id',$id)->with('dept')->first();
+        return response()->json(['data'=>$data]);
     }
 
     /**
@@ -83,7 +84,13 @@ class SchemeMasterController extends Controller
      */
     public function update(Request $request, SchemeMaster $schemeMaster)
     {
-        //
+      $schemeMaster->update([
+        'scheme_name' => $request->scheme_name,
+        'dept_id' => $request->dept_id,
+        'created_by' => Auth::user()->id,
+      ]);
+      Session::flash('scheme updated',1);
+      return redirect()->back();
     }
 
     /**

@@ -4,8 +4,8 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <span class="card-title">Scheme Master</span>
-        <a class="btn btn-primary btn-sm modal-with-move-anim" style="float:right" href="#addSchemeModal"><i class='bx bx-list-plus' ></i> Add Scheme</a>
+        <span class="card-title">Department Master</span>
+        <a class="btn btn-primary btn-sm modal-with-move-anim" style="float:right" href="#addDepartmentModal"><i class='bx bx-list-plus' ></i> Add Department</a>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -13,9 +13,7 @@
             <thead>
               <tr>
                 <th>Sl No.</th>
-                <th>Scheme Name</th>
-                <th>Department</th>
-                <th>Updated By</th>
+                <th>Name</th>
                 <th>Created On</th>
                 <th>Action</th>
               </tr>
@@ -24,15 +22,9 @@
               @foreach($data as $item)
               <tr>
                 <td>{{$loop->iteration}}</td>
-                <td width="40%">{{$item->scheme_name}}</td>
-                <td width="10%">{{$item->dept->name}}</td>
-                <td width="10%">
-                  @if($item->user)
-                  {{$item->user->name}}
-                  @endif
-                </td>
+                <td width="70%">{{$item->name}}</td>
                 <td>{{Carbon\Carbon::parse($item->created_at)->format('d-m-Y')}}</td>
-                <td><button class="btn btn-sm btn-danger modal-with-move-anim editSchemeBtn" href="#editSchemeModal" data-id="{{$item->id}}"><i class='bx bxs-edit' ></i> Edit</button></td>
+                <td><button class="btn btn-sm btn-danger modal-with-move-anim editSchemeBtn" href="#editDepartmentModal" data-id="{{$item->id}}"><i class='bx bxs-edit' ></i> Edit</button></td>
               </tr>
               @endforeach
             </tbody>
@@ -46,28 +38,20 @@
 </div>
 
 <!-- modal -->
-<div id="addSchemeModal" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+<div id="addDepartmentModal" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
 	<section class="card">
 		<header class="card-header">
-			<h2 class="card-title">Add Scheme</h2>
+			<h2 class="card-title">Add Department</h2>
 		</header>
 		<div class="card-body">
 			<div class="modal-wrapper">
-        <form class="" action="{{route('schemeMaster.store')}}" method="post">
+        <form class="" action="{{route('deptMaster.store')}}" method="post">
           @csrf
           <div class="form-group">
-            <label for="">Scheme Name</label>
-            <input type="text" name="scheme_name" class="form-control" required>
-          </div>
-          <div class="form-group">
             <label for="">Department Name</label>
-            <select name="dept_id" class="form-control" required>
-              <option value="">Select</option>
-              @foreach($department as $item)
-              <option value="{{$item->id}}">{{$item->name}}</option>
-              @endforeach
-            </select>
+            <input type="text" name="name" class="form-control" required>
           </div>
+
 			</div>
 		</div>
 		<footer class="card-footer">
@@ -81,28 +65,19 @@
 		</footer>
 	</section>
 </div>
-<div id="editSchemeModal" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
+<div id="editDepartmentModal" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
 	<section class="card">
 		<header class="card-header">
 			<h2 class="card-title">Add Scheme</h2>
 		</header>
 		<div class="card-body">
 			<div class="modal-wrapper">
-        <form class="editSchemeForm" action="" method="POST">
+        <form class="editDepartmentForm" action="" method="POST">
           @csrf
           <input type="hidden" name="_method" value="PUT">
           <div class="form-group">
-            <label for="">Scheme Name</label>
-            <input type="text" name="scheme_name" class="form-control" id="scheme_name" required>
-          </div>
-          <div class="form-group">
             <label for="">Department Name</label>
-            <select name="dept_id" class="form-control" id="dept_id" required>
-              <option value="">Select</option>
-              @foreach($department as $item)
-              <option value="{{$item->id}}">{{$item->name}}</option>
-              @endforeach
-            </select>
+            <input type="text" name="name" class="form-control" id="dept_name" required>
           </div>
 			</div>
 		</div>
@@ -118,12 +93,12 @@
 	</section>
 </div>
 
-@if(Session::has('scheme added'))
+@if(Session::has('dept added'))
 <script type="text/javascript">
 	$(document).ready(function(){
 		new PNotify({
 			title: 'Success',
-			text: 'Scheme Added.',
+			text: 'Department Added.',
 			type: 'success',
 			shadow: true
 		});
@@ -135,7 +110,7 @@
 	$(document).ready(function(){
 		new PNotify({
 			title: 'Success',
-			text: 'Scheme Updated.',
+			text: 'Department Updated.',
 			type: 'success',
 			shadow: true
 		});
@@ -153,13 +128,12 @@
                   }
               });
               jQuery.ajax({
-                    url: "{{url('/')}}/schemeMaster/"+dataId,
+                    url: "{{url('/')}}/deptMaster/"+dataId,
                     method: 'get',
                     success: function(result){
                        console.log(result);
-                       $('.editSchemeForm').attr('action',"{{url('/')}}/schemeMaster/"+dataId)
-                       $('#scheme_name').val(result.data[0].scheme_name);
-                       $('#dept_id').val(result.data[0].dept_id);
+                       $('.editDepartmentForm').attr('action',"{{url('/')}}/deptMaster/"+dataId)
+                       $('#dept_name').val(result.data.name);
                     },error: function(response) {
 
                       new PNotify({

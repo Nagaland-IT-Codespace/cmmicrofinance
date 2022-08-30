@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DeptMaster;
 use Illuminate\Http\Request;
+use Auth;
+use Session;
 
 class DeptMasterController extends Controller
 {
@@ -14,7 +16,10 @@ class DeptMasterController extends Controller
      */
     public function index()
     {
-        //
+        $data = DeptMaster::paginate(10);
+        return view('departments.index',[
+          'data' => $data,
+        ]);
     }
 
     /**
@@ -35,7 +40,11 @@ class DeptMasterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      DeptMaster::create([
+        'name' => $request->name,
+      ]);
+      Session::flash('dept added',1);
+      return redirect()->back();
     }
 
     /**
@@ -44,9 +53,10 @@ class DeptMasterController extends Controller
      * @param  \App\Models\DeptMaster  $deptMaster
      * @return \Illuminate\Http\Response
      */
-    public function show(DeptMaster $deptMaster)
+    public function show($id)
     {
-        //
+      $data = DeptMaster::where('id',$id)->first();
+      return response()->json(['data'=>$data]);
     }
 
     /**
