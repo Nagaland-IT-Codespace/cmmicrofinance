@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Auth;
+use Session;
 
 class UserMasterController extends Controller
 {
@@ -13,7 +16,10 @@ class UserMasterController extends Controller
      */
     public function index()
     {
-        //
+      $data = User::all();
+      return view('users.index', [
+        'data' => $data,
+      ]);
     }
 
     /**
