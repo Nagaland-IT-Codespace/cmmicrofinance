@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Grievance;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Session;
 
 class GrievanceController extends Controller
@@ -17,21 +17,25 @@ class GrievanceController extends Controller
      */
     public function index()
     {
-        //
-        $user = Auth::user();
-        if ($user->role == 'ADMIN') {
-            $grievances = Grievance::all()->paginate(10);
-            return view('grievance.index', compact('grievances'));
-        } else if ($user->role == 'DEPT') {
-            $grievances = Grievance::where('dept_id', $user->dept)->get()->paginate(10);;
-            return view('grievance.index', compact('grievances'));
-        } else if ($user->role == 'DC') {
-            $grievances = Grievance::where('district_id', $user->district)->get()->paginate(10);;
-            return view('grievance.index', compact('grievances'));
-        } else {
-            return view('grievance.index');
-        }
-        // send grievances to view as data table
+          if(Auth::User()->role == 'ADMIN')
+          {
+            $data = Grievance::orderBy('created_at', 'ASC')->get();
+          }
+
+          if(Auth::User()->role == 'DEPT')
+          {
+            $data = Grievance::where('dept_id', Auth::User()->dept)->orderBy('created_at', 'ASC')->get();
+          }
+
+          if(Auth::User()->role == 'DC')
+          {
+            $data = Grievance::where('district', Auth::User()->district)->orderBy('created_at', 'ASC')->get();
+          }
+
+        return view('grievances.index',[
+          'data' => $data,
+        ]);
+
     }
 
     /**
@@ -74,9 +78,12 @@ class GrievanceController extends Controller
      * @param  \App\Models\Grievance  $grievance
      * @return \Illuminate\Http\Response
      */
-    public function show(Grievance $grievance)
+    public function show($id)
     {
-        //
+        $data = Grievance::find($id);
+        return view('grievances.view', [
+          'data' => $data,
+        ]);
     }
 
     /**
