@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card-header">
         <span class="card-title">Scheme Master</span>
-        <button class="btn btn-primary btn-sm" style="float:right">Add User</button>
+        <a href="{{ route('userMaster.create') }}"class="btn btn-primary btn-sm" style="float:right">Add User</a>
       </div>
       <div class="card-body">
         <table class="table table-striped table-sm">
