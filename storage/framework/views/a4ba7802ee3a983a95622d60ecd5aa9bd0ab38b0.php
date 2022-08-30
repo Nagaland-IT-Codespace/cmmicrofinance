@@ -29,6 +29,7 @@
 		<link rel="stylesheet" href="<?php echo e(asset('dashboardAssets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css')); ?>" />
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
+
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="<?php echo e(asset('dashboardAssets/css/theme.css')); ?>" />
 
@@ -52,7 +53,7 @@
 			<header class="header">
 				<div class="logo-container">
 					<a href="<?php echo e(url('/')); ?>" class="logo">
-						<a href="/" class="logo"><img src="<?php echo e(asset('assets/img/cmmfi-logo-b.png')); ?>" height="50"/></a>
+						<a href="/" class="logo"><img src="<?php echo e(asset('assets/img/cmmfi-logo-dash.png')); ?>" height="50"/></a>
 					</a>
 
 					<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -191,6 +192,11 @@
 			});
 	  } );
 	  </script>
+		<script type="text/javascript">
+		$(document).ready(function () {
+				$('.datatable').DataTable();
+		});
+		</script>
 		@livewireScripts
 	</body>
 </html>

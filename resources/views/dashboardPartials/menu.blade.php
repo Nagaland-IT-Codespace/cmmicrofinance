@@ -40,6 +40,12 @@
             <span>Grievances</span>
           </a>
         </li>
+        <li>
+          <a class="nav-link" href="{{route('applicationForm.index')}}">
+            <i class='bx bx-list-plus'></i>
+            <span>Application Forms</span>
+          </a>
+        </li>
         @endif
 
         @if(Auth::user()->role == "DC")
