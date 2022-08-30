@@ -4,42 +4,42 @@
     <nav id="menu" class="nav-main" role="navigation">
       <ul class="nav nav-main">
         <li>
-          <a class="nav-link" href="{{route('dashboard')}}">
+          <a class="nav-link" href="<?php echo e(route('dashboard')); ?>">
             <i class="bx bx-home-alt" aria-hidden="true"></i>
             <span>Dashboard</span>
           </a>
         </li>
-        @if(Auth::user()->role == 'ADMIN')
+        <?php if(Auth::user()->role == 'SAdmin'): ?>
         <li>
-          <a class="nav-link" href="{{route('schemeMaster')}}">
+          <a class="nav-link" href="<?php echo e(route('schemeMaster')); ?>">
             <i class='bx bx-list-plus'></i>
             <span>Scheme Master</span>
           </a>
         </li>
         <li>
-          <a class="nav-link" href="{{route('institutionMaster')}}">
+          <a class="nav-link" href="<?php echo e(route('institutionMaster')); ?>">
             <i class='bx bx-list-plus'></i>
             <span>Institution Master</span>
           </a>
         </li>
-        @endif
+        <?php endif; ?>
 
-        @if(Auth::user()->role == "Helpdesk")
-        @include('dashboardPartials.helpdeskMenu')
-        @elseif(Auth::user()->role == "Applicant")
+        <?php if(Auth::user()->role == "Helpdesk"): ?>
+        <?php echo $__env->make('dashboardPartials.helpdeskMenu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php elseif(Auth::user()->role == "Applicant"): ?>
         <li>
           <a class="nav-link" href="#">
-            @if(isset($mailCount) && $mailCount !== 0)
-            <span class="float-right badge badge-primary">{{$mailCount}}</span>
-            @endif
+            <?php if(isset($mailCount) && $mailCount !== 0): ?>
+            <span class="float-right badge badge-primary"><?php echo e($mailCount); ?></span>
+            <?php endif; ?>
             <i class="bx bx-envelope" aria-hidden="true"></i>
             <span>Mailbox</span>
           </a>
         </li>
-        @endif
+        <?php endif; ?>
       </ul>
     </nav>
-    @if(Auth::user()->role == "Applicant")
+    <?php if(Auth::user()->role == "Applicant"): ?>
     <hr class="separator" />
     <div class="sidebar-widget widget-task">
       <div class="widget-header">
@@ -49,9 +49,9 @@
         <span style="color:#f2f2f2"><i class="fas fa-headset"></i> 8929307387</span>
       </div>
     </div>
-    @endif
+    <?php endif; ?>
 
-    @if(Auth::user()->role == "Admin")
+    <?php if(Auth::user()->role == "Admin"): ?>
     <hr class="separator" />
     <div class="sidebar-widget widget-task">
       <div class="widget-header">
@@ -62,9 +62,9 @@
         <span> <a href="#" style="color:#f2f2f2">Rejected Applications</a></span>
       </div>
     </div>
-    @endif
+    <?php endif; ?>
 
-    @if(Auth::user()->role == "Helpdesk")
+    <?php if(Auth::user()->role == "Helpdesk"): ?>
     <hr class="separator" />
 
     <div class="sidebar-widget widget-stats">
@@ -78,7 +78,7 @@
             <span class="stats-title">How to apply</span>
             <span class="stats-complete">#%</span>
             <div class="progress">
-              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="{{ $howtoapply}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $howtoapply }}%;">
+              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="<?php echo e($howtoapply); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($howtoapply); ?>%;">
                 <span class="sr-only">#% Complete</span>
               </div>
             </div>
@@ -87,8 +87,8 @@
             <span class="stats-title">Login & Registration</span>
             <span class="stats-complete">#%</span>
             <div class="progress">
-              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="{{ $loginReg}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$loginReg }}%;">
-                <span class="sr-only">{{ $loginReg }}% Complete</span>
+              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="<?php echo e($loginReg); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($loginReg); ?>%;">
+                <span class="sr-only"><?php echo e($loginReg); ?>% Complete</span>
               </div>
             </div>
           </li>
@@ -96,7 +96,7 @@
             <span class="stats-title">Aadhaar & Banking</span>
             <span class="stats-complete">#%</span>
             <div class="progress">
-              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: {{ $aadhaarIssue }}%;">
+              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($aadhaarIssue); ?>%;">
                 <span class="sr-only">#% Complete</span>
               </div>
             </div>
@@ -105,7 +105,7 @@
             <span class="stats-title">Technical Issues</span>
             <span class="stats-complete">#%</span>
             <div class="progress">
-              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: {{ $techIssue }}%;">
+              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($techIssue); ?>%;">
                 <span class="sr-only">#% Complete</span>
               </div>
             </div>
@@ -114,7 +114,7 @@
             <span class="stats-title">Other Issues</span>
             <span class="stats-complete">#%</span>
             <div class="progress">
-              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: {{ $otherIssue }}%;">
+              <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($otherIssue); ?>%;">
                 <span class="sr-only">#% Complete</span>
               </div>
             </div>
@@ -122,7 +122,7 @@
         </ul>
       </div>
     </div>
-    @endif
+    <?php endif; ?>
   </div>
 
   <script>
@@ -138,3 +138,4 @@
   </script>
 
 </div>
+<?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/dashboardPartials/menu.blade.php ENDPATH**/ ?>
