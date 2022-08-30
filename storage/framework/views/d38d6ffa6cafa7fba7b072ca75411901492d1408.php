@@ -45,16 +45,7 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <a href="/" class="logo"><img src="<?php echo e(asset('assets/img/cmmfi-logo.png')); ?>"/></a>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Downloads</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#">Login</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      <?php echo $__env->make('frontendPartials.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     </div>
   </header><!-- End Header -->
@@ -367,7 +358,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer contact">
+  <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
