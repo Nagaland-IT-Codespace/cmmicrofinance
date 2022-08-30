@@ -4,10 +4,10 @@
     <div class="card">
       <div class="card-header">
         <span class="card-title">Scheme Master</span>
-        <a href="<?php echo e(route('userMaster.create')); ?>" class="btn btn-primary btn-sm" style="float:right">Add User</a>
+        <button class="btn btn-primary btn-sm" style="float:right">Add User</button>
       </div>
       <div class="card-body">
-        <table class="table table-striped table-sm table-responsive">
+        <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th>Name</th>
@@ -29,9 +29,9 @@
               <td><?php echo e($item->dept); ?></td>
               <td><?php echo e($item->disrtrict); ?></td>
               <td>
-                <a href="<?php echo e(route('userMaster.edit', $item->id)); ?>" class="btn btn-sm btn-primary">Edit User</a>
+                <a href="<?php echo e(route('userMaster.edit', $item->id )); ?>" class="btn btn-sm btn-primary">Edit User</a>
                 <a href="#" class="btn btn-sm btn-danger">Delete User</a>
-                <a href="#" class="btn btn-sm btn-success">Reset Pass</a>
+                <a href="#" class="btn btn-sm btn-success">Change Pass</a>
               </td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -47,7 +47,7 @@
 	$(document).ready(function(){
 		new PNotify({
 			title: 'Success',
-			text: 'New User Created',
+			text: 'New User Created.',
 			type: 'success',
 			shadow: true
 		});
@@ -60,14 +60,13 @@
 	$(document).ready(function(){
 		new PNotify({
 			title: 'Success',
-			text: 'User Details updated',
+			text: 'User Details Updated.',
 			type: 'success',
 			shadow: true
 		});
 	});
 </script>
 <?php endif; ?>
-
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/users/index.blade.php ENDPATH**/ ?>

@@ -8,7 +8,7 @@
         <button class="btn btn-primary btn-sm" style="float:right">Add User</button>
       </div>
       <div class="card-body">
-        <table class="table table-striped">
+        <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th>Name</th>
@@ -17,7 +17,7 @@
               <th>Email</th>
               <th>Department</th>
               <th>District</th>
-              <th>Action</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -30,8 +30,9 @@
               <td>{{ $item->dept }}</td>
               <td>{{ $item->disrtrict }}</td>
               <td>
-                <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                <a href="{{ route('userMaster.edit', $item->id )}}" class="btn btn-sm btn-primary">Edit User</a>
+                <a href="#" class="btn btn-sm btn-danger">Delete User</a>
+                <a href="#" class="btn btn-sm btn-success">Change Pass</a>
               </td>
             </tr>
             @endforeach
