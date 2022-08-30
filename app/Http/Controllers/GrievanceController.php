@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Grievance;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class GrievanceController extends Controller
@@ -17,6 +18,20 @@ class GrievanceController extends Controller
     public function index()
     {
         //
+        $user = Auth::user();
+        if ($user->role == 'ADMIN') {
+            $grievances = Grievance::all()->paginate(10);
+            return view('grievance.index', compact('grievances'));
+        } else if ($user->role == 'DEPT') {
+            $grievances = Grievance::where('dept_id', $user->dept)->get()->paginate(10);;
+            return view('grievance.index', compact('grievances'));
+        } else if ($user->role == 'DC') {
+            $grievances = Grievance::where('district_id', $user->district)->get()->paginate(10);;
+            return view('grievance.index', compact('grievances'));
+        } else {
+            return view('grievance.index');
+        }
+        // send grievances to view as data table
     }
 
     /**
