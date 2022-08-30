@@ -158,8 +158,8 @@
                     success: function(result){
                        console.log(result);
                        $('.editSchemeForm').attr('action',"{{url('/')}}/schemeMaster/"+dataId)
-                       $('#scheme_name').val(result.data[0].scheme_name);
-                       $('#dept_id').val(result.data[0].dept_id);
+                       $('#scheme_name').val(result.data.scheme_name);
+                       $('#dept_id').val(result.data.dept_id);
                     },error: function(response) {
 
                       new PNotify({
