@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\SchemeMaster;
+use App\Models\DeptMaster;
 use Illuminate\Http\Request;
+use Auth;
+use Session;
 
 class SchemeMasterController extends Controller
 {
@@ -14,7 +17,12 @@ class SchemeMasterController extends Controller
      */
     public function index()
     {
-        return view('schemes.index');
+        $data = SchemeMaster::paginate(10);
+        $department = DeptMaster::all();
+        return view('schemes.index',[
+          'data' => $data,
+          'department' => $department,
+        ]);
     }
 
     /**
@@ -35,7 +43,13 @@ class SchemeMasterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        SchemeMaster::create([
+          'scheme_name' => $request->scheme_name,
+          'dept_id' => $request->dept_id,
+          'created_by' => Auth::user()->id,
+        ]);
+        Session::flash('scheme added',1);
+        return redirect()->back();
     }
 
     /**

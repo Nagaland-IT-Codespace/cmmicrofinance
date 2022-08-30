@@ -15,4 +15,8 @@ class SchemeMaster extends Model
     {
       return $this->hasOne(DeptMaster::class, 'id', 'dept_id');
     }
+    public function user()
+    {
+      return $this->hasOne(User::class, 'id', 'created_by');
+    }
 }
