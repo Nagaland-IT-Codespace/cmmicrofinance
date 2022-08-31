@@ -59,6 +59,19 @@
 </script>
 <?php endif; ?>
 
+<?php if(Session::has('application-updated')): ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		new PNotify({
+			title: 'Success',
+			text: 'Application has been updated.',
+			type: 'success',
+			shadow: true
+		});
+	});
+</script>
+<?php endif; ?>
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/applicationForms/index.blade.php ENDPATH**/ ?>

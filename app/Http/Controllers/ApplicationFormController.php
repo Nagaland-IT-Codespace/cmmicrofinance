@@ -121,9 +121,9 @@ class ApplicationFormController extends Controller
     {
         $data = ApplicationForm::find($id);
         $data->update([
-          'scheme_id' => $request->scheme_id,
+          'scheme_id' => $request->scheme_code,
           'proposal_from' => $request->proposal_from,
-          'district_id' => $request->district,
+          'district_id' => $request->district_code,
           'block' => strtoupper($request->block),
           'village' => strtoupper($request->village),
           'proposal_title' => $request->proposal_title,

@@ -10,6 +10,9 @@
           <form class="" action="{{ route('applicationForm.update', $data->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="scheme_code" value="{{ $data->scheme_id }}">
+            <input type="hidden" name="district_code" value="{{ $data->district_id }}">
+
             <div class="row pt-2">
               <div class=" col-md-6">
                 <div class="form-group">
