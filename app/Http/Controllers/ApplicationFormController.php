@@ -34,7 +34,7 @@ class ApplicationFormController extends Controller
     public function create()
     {
       $districts = DistrictMaster::orderBy('name', 'ASC')->get();
-      $schemes = SchemeMaster::where('id', '!=', 1)->get();
+      $schemes = SchemeMaster::all();
 
       return view('applicationForms.add', [
         'districts' => $districts,
