@@ -7,7 +7,7 @@
         Add User Details
       </div>
       <div class="card-body">
-          <form class="" action="{{ route('applicationForm.store') }}" method="post">
+          <form class="" action="{{ route('applicationForm.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="row pt-2">
@@ -97,7 +97,7 @@
             </div>
 
             <hr>
-            <button type="submit" class="btn btn-sm btn-primary">Create New User</button>
+            <button type="submit" class="btn btn-sm btn-primary">Submit</button>
           </form>
 
 

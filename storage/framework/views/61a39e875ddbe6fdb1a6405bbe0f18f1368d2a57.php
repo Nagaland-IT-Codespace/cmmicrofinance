@@ -6,7 +6,7 @@
         Add User Details
       </div>
       <div class="card-body">
-          <form class="" action="<?php echo e(route('applicationForm.store')); ?>" method="post">
+          <form class="" action="<?php echo e(route('applicationForm.store')); ?>" method="post" enctype="multipart/form-data">
             <?php echo csrf_field(); ?>
 
             <div class="row pt-2">
@@ -110,7 +110,7 @@
             </div>
 
             <hr>
-            <button type="submit" class="btn btn-sm btn-primary">Create New User</button>
+            <button type="submit" class="btn btn-sm btn-primary">Submit</button>
           </form>
 
 
