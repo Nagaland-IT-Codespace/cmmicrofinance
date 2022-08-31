@@ -176,4 +176,4 @@
 </body>
 
 </html>
-<?php /**PATH /Users/mozhui/Personal/playground/cmmicrofinance/resources/views/layouts/page.blade.php ENDPATH**/ ?>
+<?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/layouts/page.blade.php ENDPATH**/ ?>

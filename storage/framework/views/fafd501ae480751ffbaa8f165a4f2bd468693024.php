@@ -77,6 +77,15 @@
                                     <textarea class="form-control" id="message" name="message" rows="3"></textarea>
                                 </div>
 
+                                <div class="form-group mb-3">
+                                    <div class="captcha">
+                                        <span><?php echo captcha_img(); ?></span>
+                                        <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                            ↻
+                                        </button>
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group mb-3 text-center">
                                     
@@ -90,8 +99,19 @@
             </div>
     </section>
 
-    
- 
+<script type="text/javascript">
+	$('#reload').click(function () {
+			$.ajax({
+					type: 'GET',
+					url: 'reload-captcha',
+					success: function (data) {
+							$(".captcha span").html(data.captcha);
+					}
+			});
+	});
+</script>
+
+
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/mozhui/Personal/playground/cmmicrofinance/resources/views/pages/contact.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/pages/contact.blade.php ENDPATH**/ ?>

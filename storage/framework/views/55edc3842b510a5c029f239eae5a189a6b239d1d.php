@@ -32,4 +32,4 @@
         </div>
     </body>
 </html>
-<?php /**PATH /Users/mozhui/Personal/playground/cmmicrofinance/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/views/minimal.blade.php ENDPATH**/ ?>
+<?php /**PATH /opt/homebrew/var/www/cmmicrofinance/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/views/minimal.blade.php ENDPATH**/ ?>

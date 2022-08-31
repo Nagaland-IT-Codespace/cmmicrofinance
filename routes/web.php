@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\PageController::class, 'welcome'])->name('/');
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contact');
 Route::resource('grievance', App\Http\Controllers\GrievanceController::class);
-
+Route::get('reload-captcha', [App\Http\Controllers\CaptchaController::class, 'reloadCaptcha']);
 
 //Authenticated Page Routes
 Route::group(['middleware' => ['auth']],function()
