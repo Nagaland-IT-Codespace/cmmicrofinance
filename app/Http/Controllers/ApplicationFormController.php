@@ -104,7 +104,10 @@ class ApplicationFormController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = ApplicationForm::find($id);
+        return view('applicationForms.edit',[
+          'data' => $data,
+        ]);
     }
 
     /**
@@ -116,7 +119,31 @@ class ApplicationFormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = ApplicationForm::find($id);
+        $data->update([
+          'scheme_id' => $request->scheme_id,
+          'proposal_from' => $request->proposal_from,
+          'district_id' => $request->district,
+          'block' => strtoupper($request->block),
+          'village' => strtoupper($request->village),
+          'proposal_title' => $request->proposal_title,
+          'name_of_proposee' => $request->name_of_proposee,
+          'address_of_proposee' => $request->address_of_proposee,
+          'expected_outcome' => $request->expected_outcome,
+          'project_duration' => $request->project_duration,
+          'project_outlay' => $request->project_outlay,
+          'status' => $request->status,
+        ]);
+
+        if($request->hasFile('project_file'))
+          {
+            $ext = $request->file('project_file')->extension();
+            $data->update([
+              'project_file' => $request->file('project_file')->storeAs('public/Applications/'.$data->id,'project_file_'.$data->id.".".$ext),
+            ]);
+          }
+        Session::flash('application-updated', 1);
+        return redirect()->route('applicationForm.index');
     }
 
     /**

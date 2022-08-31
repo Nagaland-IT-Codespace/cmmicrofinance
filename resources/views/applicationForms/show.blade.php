@@ -14,6 +14,8 @@
         <p><b>Project Duration (in months):</b> {{ $data->project_duration }}</p>
         <p><b>Project Outlay (in INR):</b> {{ $data->project_outlay }}</p>
         <p><a href="{{Storage::url($data->project_file)}}" class="btn btn-sm btn-danger" target="_blank">View Complete Proposal Application</a> </p>
+        <hr>
+        <p> <a href="{{ route('applicationForm.edit', $data->id) }}" class="btn btn-sm btn-success">Update Status</a> </p>
       </div>
     </div>
   </div>
