@@ -15,7 +15,7 @@
             </div>
           </div>
           <div class="summary-footer">
-            <a class="text-uppercase">(view all)</a>
+            <a class="text-uppercase" href="{{route('applicationForm.index')}}">(view all)</a>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
             </div>
           </div>
           <div class="summary-footer">
-            <a class="text-uppercase">(view all)</a>
+            <a class="text-uppercase" href="{{route('schemeMaster.index')}}">(view all)</a>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
             </div>
           </div>
           <div class="summary-footer">
-            <a class="text-uppercase">(view all)</a>
+            <a class="text-uppercase" href="{{route('applicationForm.index')}}">(view all)</a>
           </div>
         </div>
       </div>
