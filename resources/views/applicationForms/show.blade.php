@@ -13,7 +13,7 @@
         <p><b>Expected Outcome:</b> {{ $data->expected_outcome }}</p>
         <p><b>Project Duration (in months):</b> {{ $data->project_duration }}</p>
         <p><b>Project Outlay (in INR):</b> {{ $data->project_outlay }}</p>
-        <p><a href="#" class="btn btn-sm btn-danger" target="_blank">View Complete Proposal Application</a> </p>
+        <p><a href="{{Storage::url($data->project_file)}}" class="btn btn-sm btn-danger" target="_blank">View Complete Proposal Application</a> </p>
       </div>
     </div>
   </div>
