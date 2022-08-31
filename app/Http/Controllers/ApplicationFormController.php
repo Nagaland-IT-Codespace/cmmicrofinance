@@ -34,7 +34,7 @@ class ApplicationFormController extends Controller
     public function create()
     {
       $districts = DistrictMaster::orderBy('name', 'ASC')->get();
-      $schemes = SchemeMaster::where('id', '!=', 1)->get();
+      $schemes = SchemeMaster::all();
 
       return view('applicationForms.add', [
         'districts' => $districts,
@@ -70,7 +70,7 @@ class ApplicationFormController extends Controller
             {
               $ext = $request->file('project_file')->extension();
               $data->update([
-                'project_file' => $request->file($request->project_file)->storeAs('public/Applications/'.$data->id,$request->project_file.'_'.$data->id.".".$ext),
+                'project_file' => $request->file('project_file')->storeAs('public/Applications/'.$data->id,'project_file_'.$data->id.".".$ext),
               ]);
             }
           Session::flash('application-added', 1);

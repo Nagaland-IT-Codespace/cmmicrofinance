@@ -19,16 +19,16 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/vendor/aos/aos.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/vendor/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/vendor/boxicons/css/boxicons.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/vendor/glightbox/css/glightbox.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/vendor/remixicon/remixicon.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/vendor/swiper/swiper-bundle.min.css')); ?>" rel="stylesheet">
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
       <!-- Template Main CSS File -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="<?php echo e(asset('assets/css/style.css')); ?>" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Dewi - v4.8.1
@@ -45,9 +45,9 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="/" class="logo"><img src="{{ asset('assets/img/cmmfi-logo.png') }}" /></a>
+            <a href="/" class="logo"><img src="<?php echo e(asset('assets/img/cmmfi-logo.png')); ?>" /></a>
 
-            @include('frontendPartials.menu')
+            <?php echo $__env->make('frontendPartials.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         </div>
     </header><!-- End Header -->
@@ -292,14 +292,14 @@
                     <div class="col-md-6 mt-4 mt-md-0">
                         <div class="icon-box">
                             <i class="bi bi-card-checklist"></i>
-                            <h4><a href="{{ asset('docs/Annexure VII.pdf') }}">Annexure VII</a></h4>
+                            <h4><a href="<?php echo e(asset('docs/Annexure VII.pdf')); ?>">Annexure VII</a></h4>
                             <p>Application format for Project Proposal for individual/SHG/FPO</p>
                         </div>
                     </div>
                     <div class="col-md-6 mt-4 mt-md-0">
                         <div class="icon-box">
                             <i class="bi bi-card-checklist"></i>
-                            <h4><a href="{{ asset('docs/Application-form-eco-carp.pdf') }}">Application Form</a></h4>
+                            <h4><a href="<?php echo e(asset('docs/Application-form-eco-carp.pdf')); ?>">Application Form</a></h4>
                             <p>For Eco-Carp Hatchery</p>
                         </div>
                     </div>
@@ -307,7 +307,7 @@
                         <div class="icon-box">
                             <i class="bi bi-card-checklist"></i>
                             <h4><a
-                                    href="{{ asset('docs/CHIEF MINISTER’S MICRO FINANCE INITIATIVE Booklet.pdf') }}">Booklet</a>
+                                    href="<?php echo e(asset('docs/CHIEF MINISTER’S MICRO FINANCE INITIATIVE Booklet.pdf')); ?>">Booklet</a>
                             </h4>
                             <p>Chief Minister's Mirco Finance Inititiave Booklet</p>
                         </div>
@@ -451,7 +451,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6 footer-newsletter text-center">
-                        <img src="{{ asset('assets/img/gon-logo.png') }}" height="120" /> <br><br>
+                        <img src="<?php echo e(asset('assets/img/gon-logo.png')); ?>" height="120" /> <br><br>
                         <b><a href="https://nagaland.gov.in" style="color:#f2f2f2" />nagaland.gov.in</a></b>
 
                     </div>
@@ -505,15 +505,15 @@
   src="https://code.jquery.com/jquery-3.6.1.min.js"
   integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
   crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.j') }}s"></script>
-    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="<?php echo e(asset('assets/vendor/purecounter/purecounter_vanilla.j')); ?>s"></script>
+    <script src="<?php echo e(asset('assets/vendor/aos/aos.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/vendor/glightbox/js/glightbox.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/vendor/swiper/swiper-bundle.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/vendor/php-email-form/validate.js')); ?>"></script>
     <!-- Template Main JS File -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="<?php echo e(asset('assets/js/main.js')); ?>"></script>
     <script type="text/javascript">
     $(document).ready(function(){
       $(document).click(function(e){
@@ -530,3 +530,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\cmmicrofinance\resources\views/welcome.blade.php ENDPATH**/ ?>

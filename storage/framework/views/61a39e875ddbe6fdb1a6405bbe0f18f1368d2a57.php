@@ -1,27 +1,25 @@
-@extends('layouts.dashboard')
-@section('content')
-<div class="row mt-5">
+<?php $__env->startSection('content'); ?>
+<div class="row">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header bg-primary">
         Add User Details
       </div>
       <div class="card-body">
-          <form class="" action="{{ route('applicationForm.store') }}" method="post" enctype="multipart/form-data">
-            @csrf
+          <form class="" action="<?php echo e(route('applicationForm.store')); ?>" method="post" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
 
             <div class="row pt-2">
-              <div class=" col-md-6">
-                <div class="form-group">
-                  <label for="scheme_id">Scheme</label>
-                  <select class="form-control" id="scheme_id" name="scheme_id">
-                    <option selected disabled> -- Select -- </option>
-                    @foreach($schemes as $scheme)
-                    <option value="{{ $scheme->id }}">{{ $scheme->scheme_name }}</option>
-                    @endforeach
-                  </select>
-                </div>
+              <div class="form-group col-md-6">
+                <label for="scheme_id">Scheme</label>
+                <select class="form-control" id="scheme_id" name="scheme_id">
+                  <option selected disabled> -- Select -- </option>
+                  <?php $__currentLoopData = $schemes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $scheme): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <option value="<?php echo e($scheme->id); ?>"><?php echo e($scheme->scheme_name); ?></option>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
               </div>
+
               <div class="form-group col-md-6">
                 <label for="proposal_from">Company Type</label>
                 <select class="form-control" id="proposal_from" name="proposal_from">
@@ -31,6 +29,8 @@
                   <option value="FPO">FPO</option>
                 </select>
               </div>
+
+
             </div>
 
             <div class="row pt-2">
@@ -38,9 +38,9 @@
                 <label for="district">District</label>
                 <select class="form-control" id="district" name="district">
                   <option selected disabled> -- Select -- </option>
-                  @foreach($districts as $district)
-                  <option value="{{ $district->id }}">{{ $district->name }}</option>
-                  @endforeach
+                  <?php $__currentLoopData = $districts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $district): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <option value="<?php echo e($district->id); ?>"><?php echo e($district->name); ?></option>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
               </div>
 
@@ -91,7 +91,21 @@
 
             <div class="row pt-2">
               <div class="col-md-12">
-                  <x-form-upload label="Upload the Project Proposal" name="project_file" required/>
+                  <?php if (isset($component)) { $__componentOriginal7b8dad879d0302c6e6601deae08cd502e932b8e1 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\FormUpload::class, ['label' => 'Upload the Project Proposal','name' => 'project_file'] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('form-upload'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $constructor = (new ReflectionClass(App\View\Components\FormUpload::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['required' => true]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal7b8dad879d0302c6e6601deae08cd502e932b8e1)): ?>
+<?php $component = $__componentOriginal7b8dad879d0302c6e6601deae08cd502e932b8e1; ?>
+<?php unset($__componentOriginal7b8dad879d0302c6e6601deae08cd502e932b8e1); ?>
+<?php endif; ?>
               </div>
             </div>
 
@@ -106,4 +120,6 @@
 
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/applicationForms/add.blade.php ENDPATH**/ ?>
