@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-<div class="row">
+<div class="row mt-5">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header bg-primary">
@@ -11,16 +11,17 @@
             @csrf
 
             <div class="row pt-2">
-              <div class="form-group col-md-6">
-                <label for="scheme_id">Scheme</label>
-                <select class="form-control" id="scheme_id" name="scheme_id">
-                  <option selected disabled> -- Select -- </option>
-                  @foreach($schemes as $scheme)
-                  <option value="{{ $scheme->id }}">{{ $scheme->scheme_name }}</option>
-                  @endforeach
-                </select>
+              <div class=" col-md-6">
+                <div class="form-group">
+                  <label for="scheme_id">Scheme</label>
+                  <select class="form-control" id="scheme_id" name="scheme_id">
+                    <option selected disabled> -- Select -- </option>
+                    @foreach($schemes as $scheme)
+                    <option value="{{ $scheme->id }}">{{ $scheme->scheme_name }}</option>
+                    @endforeach
+                  </select>
+                </div>
               </div>
-
               <div class="form-group col-md-6">
                 <label for="proposal_from">Company Type</label>
                 <select class="form-control" id="proposal_from" name="proposal_from">
@@ -30,8 +31,6 @@
                   <option value="FPO">FPO</option>
                 </select>
               </div>
-
-
             </div>
 
             <div class="row pt-2">
