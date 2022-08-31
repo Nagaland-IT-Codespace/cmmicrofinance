@@ -66,9 +66,9 @@ class ApplicationFormController extends Controller
             'status' => 'SUBMITTED',
           ]);
 
-          if($request->hasFile($request->project_file))
+          if($request->hasFile('project_file'))
             {
-              $ext = $request->file($request->project_file)->extension();
+              $ext = $request->file('project_file')->extension();
               $data->update([
                 'project_file' => $request->file($request->project_file)->storeAs('public/Applications/'.$data->id,$request->project_file.'_'.$data->id.".".$ext),
               ]);
