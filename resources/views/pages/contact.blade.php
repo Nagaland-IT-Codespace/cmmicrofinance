@@ -78,6 +78,15 @@
                                     <textarea class="form-control" id="message" name="message" rows="3"></textarea>
                                 </div>
 
+                                <div class="form-group mb-3">
+                                    <div class="captcha">
+                                        <span>{!! captcha_img() !!}</span>
+                                        <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                            ↻
+                                        </button>
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group mb-3 text-center">
                                     {{-- Form Submit button --}}
@@ -91,6 +100,17 @@
             </div>
     </section>
 
-    
- 
+<script type="text/javascript">
+	$('#reload').click(function () {
+			$.ajax({
+					type: 'GET',
+					url: 'reload-captcha',
+					success: function (data) {
+							$(".captcha span").html(data.captcha);
+					}
+			});
+	});
+</script>
+
+
 @endsection

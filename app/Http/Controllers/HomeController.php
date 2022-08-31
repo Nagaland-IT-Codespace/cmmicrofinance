@@ -13,5 +13,13 @@ class HomeController extends Controller
       {
         return view('dashboard');
       }
+      if(Auth::User()->role == 'DEPT')
+      {
+        return view('dashboard');
+      }
+      if(Auth::User()->role == 'DC')
+      {
+        return view('dashboard');
+      }
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-<div class="row">
+<div class="row mt-5">
   @include('dashboardPartials.card_data')
   @include('dashboardPartials.department_data')
 </div>

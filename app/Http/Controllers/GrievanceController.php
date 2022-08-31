@@ -29,7 +29,7 @@ class GrievanceController extends Controller
 
           if(Auth::User()->role == 'DC')
           {
-            $data = Grievance::where('district', Auth::User()->district)->orderBy('created_at', 'ASC')->get();
+            $data = Grievance::where('district_id', Auth::User()->district)->orderBy('created_at', 'ASC')->get();
           }
 
         return view('grievances.index',[

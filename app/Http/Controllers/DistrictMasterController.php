@@ -14,7 +14,10 @@ class DistrictMasterController extends Controller
      */
     public function index()
     {
-        //
+        $data = DistrictMaster::all();
+        return view('districts.index',[
+          'data' => $data,
+        ]);
     }
 
     /**

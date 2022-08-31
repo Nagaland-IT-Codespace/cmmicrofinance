@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="fixed">
+<html class="fixed sidebar-left-collapsed">
 	<head>
 
 		<!-- Basic -->
@@ -29,6 +29,7 @@
 		<link rel="stylesheet" href="<?php echo e(asset('dashboardAssets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css')); ?>" />
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
+
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="<?php echo e(asset('dashboardAssets/css/theme.css')); ?>" />
 
@@ -43,16 +44,17 @@
 		<script src="<?php echo e(asset('dashboardAssets/vendor/modernizr/modernizr.js')); ?>"></script>
 		<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		@livewireStyles
+		<?php echo \Livewire\Livewire::styles(); ?>
+
 	</head>
-	<body>
+	<body > 
 		<section class="body">
 
 			<!-- start: header -->
 			<header class="header">
 				<div class="logo-container">
 					<a href="<?php echo e(url('/')); ?>" class="logo">
-						<a href="/" class="logo"><img src="<?php echo e(asset('assets/img/cmmfi-logo-b.png')); ?>" height="50"/></a>
+						<a href="/" class="logo"><img src="<?php echo e(asset('assets/img/cmmfi-logo-dash.png')); ?>" height="50"/></a>
 					</a>
 
 					<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -191,7 +193,12 @@
 			});
 	  } );
 	  </script>
-		@livewireScripts
+		<script type="text/javascript">
+		$(document).ready(function () {
+				$('.datatable').DataTable();
+		});
+		</script>	
+		<?php echo \Livewire\Livewire::scripts(); ?>	
 	</body>
 </html>
 <?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/layouts/dashboard.blade.php ENDPATH**/ ?>

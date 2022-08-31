@@ -1,2 +1,0 @@
-<a href="/" class="logo"><img src="<?php echo e(asset('assets/img/cmmfi-logo-b.png')); ?>"/></a>
-<?php /**PATH /Users/mozhui/Personal/playground/cmmicrofinance/resources/views/components/application-logo.blade.php ENDPATH**/ ?>
