@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-<div class="row">
+<div class="row mt-5">
   <?php echo $__env->make('dashboardPartials.card_data', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   <?php echo $__env->make('dashboardPartials.department_data', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>

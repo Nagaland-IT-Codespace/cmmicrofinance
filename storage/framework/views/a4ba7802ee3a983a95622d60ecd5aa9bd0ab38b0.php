@@ -44,7 +44,8 @@
 		<script src="<?php echo e(asset('dashboardAssets/vendor/modernizr/modernizr.js')); ?>"></script>
 		<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		@livewireStyles
+		<?php echo \Livewire\Livewire::styles(); ?>
+
 	</head>
 	<body > 
 		<section class="body">
@@ -197,7 +198,7 @@
 				$('.datatable').DataTable();
 		});
 		</script>	
-		@livewireScripts	
+		<?php echo \Livewire\Livewire::scripts(); ?>	
 	</body>
 </html>
 <?php /**PATH /opt/homebrew/var/www/cmmicrofinance/resources/views/layouts/dashboard.blade.php ENDPATH**/ ?>
