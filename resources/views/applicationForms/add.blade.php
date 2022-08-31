@@ -4,7 +4,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header bg-primary">
-        Add User Details
+        Add New Application
       </div>
       <div class="card-body">
           <form class="" action="{{ route('applicationForm.store') }}" method="post" enctype="multipart/form-data">

@@ -60,4 +60,17 @@
 </script>
 @endif
 
+@if(Session::has('application-updated'))
+<script type="text/javascript">
+	$(document).ready(function(){
+		new PNotify({
+			title: 'Success',
+			text: 'Application has been updated.',
+			type: 'success',
+			shadow: true
+		});
+	});
+</script>
+@endif
+
 @endsection
