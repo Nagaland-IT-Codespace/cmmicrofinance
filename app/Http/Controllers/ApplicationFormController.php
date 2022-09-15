@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Session;
 use Storage;
+use Carbon\Carbon;
 
 class ApplicationFormController extends Controller
 {
@@ -63,7 +64,8 @@ class ApplicationFormController extends Controller
             'expected_outcome' => $request->expected_outcome,
             'project_duration' => $request->project_duration,
             'project_outlay' => $request->project_outlay,
-            'status' => 'SUBMITTED',
+            'upload_date' => Carbon::now()->format('Y-m'),
+            'status' => 'APPROVED',
           ]);
 
           if($request->hasFile('project_file'))
@@ -132,7 +134,6 @@ class ApplicationFormController extends Controller
           'expected_outcome' => $request->expected_outcome,
           'project_duration' => $request->project_duration,
           'project_outlay' => $request->project_outlay,
-          'status' => $request->status,
         ]);
 
         if($request->hasFile('project_file'))

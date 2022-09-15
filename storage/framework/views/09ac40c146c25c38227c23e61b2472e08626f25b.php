@@ -70,6 +70,39 @@
                         </a>
                     </li>
                 <?php endif; ?>
+
+                <?php if(Auth::User()->role == 'BANK'): ?>
+                <li>
+                    <a class="nav-link" href="<?php echo e(route('bankMaster.index')); ?>">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Banks</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="<?php echo e(route('appReceivedSanctioned.index')); ?>">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Applications</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="<?php echo e(route('beneficiarySanction.index')); ?>">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Sanctions</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="<?php echo e(route('subsidy.index')); ?>">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Subsidies</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="<?php echo e(route('misUtilization.index')); ?>">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage MisUtilizations</span>
+                    </a>
+                </li>
+                <?php endif; ?>
             </ul>
         </nav>
 

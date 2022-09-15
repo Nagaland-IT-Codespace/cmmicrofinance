@@ -70,6 +70,39 @@
                         </a>
                     </li>
                 @endif
+
+                @if(Auth::User()->role == 'BANK')
+                <li>
+                    <a class="nav-link" href="{{ route('bankMaster.index') }}">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Banks</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{ route('appReceivedSanctioned.index') }}">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Applications</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{ route('beneficiarySanction.index') }}">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Sanctions</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{ route('subsidy.index') }}">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Subsidies</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{ route('misUtilization.index') }}">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage MisUtilizations</span>
+                    </a>
+                </li>
+                @endif
             </ul>
         </nav>
 
