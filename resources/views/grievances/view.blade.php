@@ -14,7 +14,7 @@
             <p><b>Email:</b> {{ $data->email }}</p>
             <p><b>Scheme:</b> {{ $data->scheme->scheme_name }}</p>
             <p><b>Department: </b>{{ $data->dept->name }}<button class="btn btn-primary m-1">Transfer Dept</button></p>
-            <p><b>District:</b> {{ $data->district->name }} <button class="btn btn-primary m-1">Transfer District</button></p>
+            <p><b>District:</b> {{ $data->district->name }} <button class="btn btn-primary m-1">Transfer Dept</button</p>
             <p><b>Message: </b>{{ $data->message }}</p>
           </div>
           <hr>
