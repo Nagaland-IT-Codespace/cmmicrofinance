@@ -42,7 +42,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="transferDeptLabel">Transfer Department</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    {{-- Close modal button --}}
+
+
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('grievance.update', $data->id) }}" method="POST">
@@ -59,6 +61,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Transfer</button>
+
                         </div>
                     </form>
                 </div>
@@ -71,7 +74,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="sendEmailLabel">Send Email</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 </div>
                 <div class="modal-body">
                     {{-- form with email,subject and body --}}
@@ -92,6 +95,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Send</button>
+                            <button class="btn btn-default modal-dismiss"  data-dismiss="modal" aria-label="Close">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -104,8 +108,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="transferLogsLabel">Transfer Logs</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                   </div>
                 <div class="modal-body">
                     <table class="table table-bordered">
                         <thead>
@@ -125,6 +128,8 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{-- Cancel button --}}
+                    <button class="btn btn-default modal-dismiss"  data-dismiss="modal" aria-label="Close">Cancel</button>
                 </div>
             </div>
         </div>
