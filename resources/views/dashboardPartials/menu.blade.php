@@ -103,6 +103,15 @@
                     </a>
                 </li>
                 @endif
+                @if(Auth::User()->role == 'DEPT')
+                <li>
+                    <a class="nav-link" href="{{ route('grievance.index') }}">
+                        {{-- Grievance icon --}}
+                        <i class='bx bx-help-circle'></i>
+                        <span>Grievances</span>
+                    </a>
+                </li>
+                @endif
             </ul>
         </nav>
 
