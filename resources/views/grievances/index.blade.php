@@ -28,7 +28,7 @@
               <td>{{ $item->message }}</td>
               <td>
                 <a href="{{ route('grievance.show', $item->id) }}" class="btn btn-sm btn-danger">View</a>
-                <a href="#" class="btn btn-sm btn-success">Reply</a>
+                {{-- <a href="#" class="btn btn-sm btn-success">Reply</a> --}}
               </td>
             </tr>
             @endforeach

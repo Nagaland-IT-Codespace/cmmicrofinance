@@ -25,5 +25,9 @@ class Grievance extends Model
     {
       return $this->hasOne(DistrictMaster::class, 'id', 'district_id');
     }
+    public function grievanceTransferLogs()
+    {
+      return $this->hasMany(GrievanceTransferLogs::class, 'grievance_id', 'id');
+    }
 
 }

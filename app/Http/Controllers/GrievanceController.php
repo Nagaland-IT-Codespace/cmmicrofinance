@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeptMaster;
 use App\Models\Grievance;
 
 use Illuminate\Http\Request;
-use Auth;
-use Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class GrievanceController extends Controller
 {
@@ -17,25 +18,21 @@ class GrievanceController extends Controller
      */
     public function index()
     {
-          if(Auth::User()->role == 'ADMIN')
-          {
+        if (Auth::User()->role == 'ADMIN') {
             $data = Grievance::orderBy('created_at', 'ASC')->get();
-          }
+        }
 
-          if(Auth::User()->role == 'DEPT')
-          {
+        if (Auth::User()->role == 'DEPT') {
             $data = Grievance::where('dept_id', Auth::User()->dept)->orderBy('created_at', 'ASC')->get();
-          }
+        }
 
-          if(Auth::User()->role == 'DC')
-          {
+        if (Auth::User()->role == 'DC') {
             $data = Grievance::where('district_id', Auth::User()->district)->orderBy('created_at', 'ASC')->get();
-          }
+        }
 
-        return view('grievances.index',[
-          'data' => $data,
+        return view('grievances.index', [
+            'data' => $data,
         ]);
-
     }
 
     /**
@@ -80,9 +77,13 @@ class GrievanceController extends Controller
      */
     public function show($id)
     {
+        // find Grievance by id with GrievanceTransferLogs Relationship
+        $data = Grievance::with('grievanceTransferLogs')->find($id);
         $data = Grievance::find($id);
+        $departments = DeptMaster::all();
         return view('grievances.view', [
-          'data' => $data,
+            'data' => $data,
+            'departments' => $departments,
         ]);
     }
 
@@ -104,9 +105,23 @@ class GrievanceController extends Controller
      * @param  \App\Models\Grievance  $grievance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grievance $grievance)
+    public function update(Request $request, $id)
     {
-        //
+
+        $grievance = Grievance::find($id);
+        $oldDept = $grievance->dept_id;
+        $newDept= $request->dept_id;
+        $grievance->update([
+            'dept_id' => $newDept,
+        ]);
+        $grievance->grievanceTransferLogs()->create([
+            'grievance_id' => $id,
+            'from_dept' => $oldDept,
+            'to_dept' => $newDept,
+        ]);
+
+        Session::flash('Grievance updated', 'Grievance successfully updated!');
+        return redirect()->back();
     }
 
     /**

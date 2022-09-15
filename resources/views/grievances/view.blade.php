@@ -1,32 +1,132 @@
 @extends('layouts.dashboard')
 @section('content')
-<div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header">
-        <span class="card-title">Grievances</span>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-12">
-            <p><b>Name: </b>{{ $data->name }}</p>
-            <p><b>Mobile:</b> {{ $data->mobile }}</p>
-            <p><b>Email:</b> {{ $data->email }}</p>
-            <p><b>Scheme:</b> {{ $data->scheme->scheme_name }}</p>
-            <p><b>Department: </b>{{ $data->dept->name }}<button class="btn btn-primary m-1">Transfer Dept</button></p>
-            <p><b>District:</b> {{ $data->district->name }} <button class="btn btn-primary m-1">Transfer Dept</button></p>
-            <p><b>Message: </b>{{ $data->message }}</p>
-          </div>
-          <hr>
-          <a href="#" class="btn btn-sm btn-primary">Reply</a> | <a href="{{route('grievance.index')}}" class="btn btn-sm btn-danger">Back</a>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Grievances</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><b>Name: </b>{{ $data->name }}</p>
+                            <p><b>Mobile:</b> {{ $data->mobile }}</p>
+                            <p><b>Email:</b> {{ $data->email }}</p>
+                            <p><b>Scheme:</b> {{ $data->scheme->scheme_name }}</p>
+                            <p><b>Department: </b>{{ $data->dept->name }}
+                                {{-- Button to toggle modal --}}
+                                <button type="button" class="btn btn-primary m-1" data-toggle="modal"
+                                    data-target="#transferDept">
+                                    Transfer Department
+                                </button>
+                            </p>
+                            <p><b>District:</b> {{ $data->district->name }}</p>
+                            <p><b>Message: </b>{{ $data->message }}</p>
+                        </div>
+                        <hr>
+                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal"
+                            data-target="#sendEmail">Reply</a> | <a href="{{ route('grievance.index') }}"
+                            class="btn btn-sm btn-danger">Back</a> | <a href="#" class="btn btn-sm btn-success"
+                            data-toggle="modal" data-target="#transferLogs">View Transfer History</a>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
-
-
-      </div>
     </div>
-  </div>
-</div>
 
-
-
+    {{-- Create boostrap 5 modal below with form for update --}}
+    <div class="modal fade" id="transferDept" tabindex="-1" aria-labelledby="transferDeptLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="transferDeptLabel">Transfer Department</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('grievance.update', $data->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-group">
+                            <label for="dept_id">Department</label>
+                            <select name="dept_id" id="dept_id" class="form-control">
+                                <option value="">Select Department</option>
+                                @foreach ($departments as $dept)
+                                    <option value="{{ $dept->id }}">{{ $dept->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Transfer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Create boostrap 5 modal for sending email --}}
+    <div class="modal fade" id="sendEmail" tabindex="-1" aria-labelledby="sendEmailLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sendEmailLabel">Send Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{-- form with email,subject and body --}}
+                    <form action="#" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control"
+                                value="{{ $data->email }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" name="subject" id="subject" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="body">Body</label>
+                            <textarea name="body" id="body" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Create bootstrap 5 modal to show grievance transfer logs --}}
+    <div class="modal fade" id="transferLogs" tabindex="-1" aria-labelledby="transferLogsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="transferLogsLabel">Transfer Logs</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>From Dept</th>
+                                <th>To Dept</th>
+                                <th>Transfered On</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data->grievanceTransferLogs as $log)
+                                <tr>
+                                    <td>{{ $log->fromDept->name }}</td>
+                                    <td>{{ $log->toDept->name }}</td>
+                                    <td>{{ $log->created_at }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
