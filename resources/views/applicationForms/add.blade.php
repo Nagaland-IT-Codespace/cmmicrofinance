@@ -48,6 +48,20 @@
                 </div>
               </div>
             </div>
+            {{-- District drop down --}}
+            <div class="row pt-2">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="district_id">District</label>
+                    <select class="form-control" id="district_id" name="district_id">
+                        <option selected disabled> -- Select -- </option>
+                        @foreach($districts as $district)
+                        <option value="{{ $district->id }}">{{ $district->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+              </div>
+            </div>
 
             <div class="row pt-2">
               <div class="col-md-4">
