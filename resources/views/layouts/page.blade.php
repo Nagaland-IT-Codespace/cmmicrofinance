@@ -27,7 +27,7 @@
     <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('dashboardAssets/vendor/pnotify/pnotify.custom.css') }}" />
-
+    <script src="{{ asset('dashboardAssets/vendor/jquery/jquery.js') }}"></script>
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
@@ -156,7 +156,7 @@
     <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-    <script src="{{ asset('dashboardAssets/vendor/jquery/jquery.js') }}"></script>
+
     <script src="{{ asset('dashboardAssets/vendor/pnotify/pnotify.custom.js') }}"></script>
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
