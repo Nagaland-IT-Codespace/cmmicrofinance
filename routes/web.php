@@ -28,9 +28,11 @@ Route::group(['middleware' => ['auth']],function()
     Route::resource('districtMaster', App\Http\Controllers\DistrictMasterController::class);
     Route::resource('userMaster', App\Http\Controllers\UserMasterController::class);
     Route::resource('applicationForm', App\Http\Controllers\ApplicationFormController::class);
+    //Bankers routes
+    Route::get('bankAppList', [App\Http\Controllers\BankActivitiesController::class, 'bankAppList' ])->name('bankAppList');
+    Route::get('bankAppShow/{id}', [App\Http\Controllers\BankActivitiesController::class, 'bankAppShow' ])->name('bankAppShow');
+    Route::post('bankAppUpdate', [App\Http\Controllers\BankActivitiesController::class, 'bankAppUpdate' ])->name('bankAppUpdate');
     Route::resource('bankMaster', App\Http\Controllers\BankMasterController::class);
-    Route::resource('appReceivedSanctioned', App\Http\Controllers\AppReceivedSanctionedController::class);
-    Route::resource('beneficiarySanction', App\Http\Controllers\BeneficiarySanctioncontroller::class);
     Route::resource('subsidy', App\Http\Controllers\SubsidyController::class);
     Route::resource('misUtilization', App\Http\Controllers\MisutilizationController::class);
 

@@ -79,15 +79,15 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="{{ route('appReceivedSanctioned.index') }}">
+                    <a class="nav-link" href="{{ route('bankAppList') }}">
                         <i class='bx bx-notepad'></i>
                         <span>Manage Applications</span>
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="{{ route('beneficiarySanction.index') }}">
+                    <a class="nav-link" href="#">
                         <i class='bx bx-notepad'></i>
-                        <span>Manage Sanctions</span>
+                        <span>Manage Disbursements</span>
                     </a>
                 </li>
                 <li>

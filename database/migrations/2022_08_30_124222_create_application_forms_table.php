@@ -29,7 +29,16 @@ return new class extends Migration
             $table->string('project_outlay')->nullable();
             $table->string('status')->nullable();
             $table->string('project_file')->nullable();
-            $table->string('upload_date')->nullable();
+            $table->string('year_month')->nullable();
+            $table->string('eligible_bank_loan')->nullable();
+            $table->date('bank_receipt_date')->nullable();
+            $table->string('amount_sanctioned')->nullable();
+            $table->date('date_of_sanction')->nullable();
+            $table->string('subsidy_claimed')->nullable();
+            $table->string('subsidy_received')->nullable();
+            $table->string('margin_money')->nullable();
+            $table->string('bank_id')->nullable();
+            $table->string('reason_for_delay')->nullable();
             $table->timestamps();
         });
     }
