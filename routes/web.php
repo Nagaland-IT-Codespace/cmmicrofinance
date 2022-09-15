@@ -28,6 +28,11 @@ Route::group(['middleware' => ['auth']],function()
     Route::resource('districtMaster', App\Http\Controllers\DistrictMasterController::class);
     Route::resource('userMaster', App\Http\Controllers\UserMasterController::class);
     Route::resource('applicationForm', App\Http\Controllers\ApplicationFormController::class);
+    Route::resource('bankMaster', App\Http\Controllers\BankMasterController::class);
+    Route::resource('appReceivedSanctioned', App\Http\Controllers\AppReceivedSanctionedController::class);
+    Route::resource('beneficiarySanction', App\Http\Controllers\BeneficiarySanctioncontroller::class);
+    Route::resource('subsidy', App\Http\Controllers\SubsidyController::class);
+    Route::resource('misUtilization', App\Http\Controllers\MisutilizationController::class);
 
 });
 

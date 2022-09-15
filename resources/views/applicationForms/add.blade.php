@@ -9,7 +9,7 @@
       <div class="card-body">
           <form class="" action="{{ route('applicationForm.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-
+            <input type="hidden" name="district" value="{{ Auth::User()->district }}" >
             <div class="row pt-2">
               <div class=" col-md-6">
                 <div class="form-group">
@@ -34,58 +34,62 @@
             </div>
 
             <div class="row pt-2">
-              <div class="form-group col-md-4">
-                <label for="district">District</label>
-                <select class="form-control" id="district" name="district">
-                  <option selected disabled> -- Select -- </option>
-                  @foreach($districts as $district)
-                  <option value="{{ $district->id }}">{{ $district->name }}</option>
-                  @endforeach
-                </select>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="block">Block</label>
+                  <input type="text" class="form-control" id="block" name="block" required>
+                </div>
               </div>
 
-              <div class="form-group col-md-4">
-                <label for="block">Block</label>
-                <input type="text" class="form-control" id="block" name="block" required>
-              </div>
-
-              <div class="form-group col-md-4">
-                <label for="village">Village</label>
-                <input type="text" class="form-control" id="village" name="village" required>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="village">Village</label>
+                  <input type="text" class="form-control" id="village" name="village" required>
+                </div>
               </div>
             </div>
 
             <div class="row pt-2">
-              <div class="form-group col-md-4">
-                <label for="proposal_title">Title of Proposal</label>
-                <input type="text" class="form-control" id="proposal_title" name="proposal_title" required>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="proposal_title">Title of Proposal</label>
+                  <input type="text" class="form-control" id="proposal_title" name="proposal_title" required>
+                </div>
               </div>
 
-              <div class="form-group col-md-4">
-                <label for="name_of_proposee">Name of Proposee</label>
-                <input type="text" class="form-control" id="name_of_proposee" name="name_of_proposee" required>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="name_of_proposee">Name of Proposee</label>
+                  <input type="text" class="form-control" id="name_of_proposee" name="name_of_proposee" required>
+                </div>
               </div>
 
-              <div class="form-group col-md-4">
-                <label for="address_of_proposee">Address of Proposee</label>
-                <input type="text" class="form-control" id="address_of_proposee" name="address_of_proposee" required>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="address_of_proposee">Address of Proposee</label>
+                  <input type="text" class="form-control" id="address_of_proposee" name="address_of_proposee" required>
+                </div>
               </div>
             </div>
 
             <div class="row pt-2">
-              <div class="form-group col-md-4">
-                <label for="expected_outcome">Expected Outcome</label>
-                <input type="text" class="form-control" id="expected_outcome" name="expected_outcome" required>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="expected_outcome">Expected Outcome</label>
+                  <input type="text" class="form-control" id="expected_outcome" name="expected_outcome" required>
+                </div>
               </div>
-
-              <div class="form-group col-md-4">
-                <label for="project_duration">Project Duration (in months)</label>
-                <input type="number" class="form-control" id="project_duration" name="project_duration" maxlength="2" required>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="project_duration">Project Duration (in months)</label>
+                  <input type="number" class="form-control" id="project_duration" name="project_duration" maxlength="2" required>
+                </div>
               </div>
-
-              <div class="form-group col-md-4">
-                <label for="project_outlay">Project Outlay (in INR)</label>
-                <input type="number" class="form-control" id="project_outlay" name="project_outlay" required>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="project_outlay">Project Outlay (in INR)</label>
+                  <input type="number" class="form-control" id="project_outlay" name="project_outlay" required>
+                </div>
               </div>
             </div>
 

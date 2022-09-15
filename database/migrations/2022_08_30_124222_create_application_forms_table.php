@@ -23,11 +23,13 @@ return new class extends Migration
             $table->string('proposal_title')->nullable();
             $table->string('name_of_proposee')->nullable();
             $table->string('address_of_proposee')->nullable();
+            $table->string('mobile')->nullable();
             $table->string('expected_outcome')->nullable();
             $table->string('project_duration')->nullable();
             $table->string('project_outlay')->nullable();
             $table->string('status')->nullable();
             $table->string('project_file')->nullable();
+            $table->string('upload_date')->nullable();
             $table->timestamps();
         });
     }

@@ -30,13 +30,6 @@
 
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="district">District</label>
-                  <input class="form-control" id="district" name="district" value="{{ $data->district->name }}" readonly required>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="form-group">
                   <label for="block">Block</label>
                   <input type="text" class="form-control" id="block" name="block" value="{{$data->block}}" readonly required>
                 </div>
@@ -96,7 +89,7 @@
 
             <div class="row pt-2">
               <div class="col-md-12">
-                  <x-form-upload label="Upload the Project Proposal" name="project_file" />
+                  <x-form-upload label="Upload the Project Proposal" name="project_file" required/>
               </div>
             </div>
             <hr>

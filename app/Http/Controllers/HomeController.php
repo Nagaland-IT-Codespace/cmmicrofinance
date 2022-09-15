@@ -21,5 +21,9 @@ class HomeController extends Controller
       {
         return view('dashboard');
       }
+      if(Auth::User()->role == 'BANK')
+      {
+        return view('dashboard');
+      }
     }
 }
