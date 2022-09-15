@@ -4,10 +4,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <span class="card-title">Banks</span>
-        @if(Auth::User()->role == 'BANK')
-        <a href="{{ route('bankMaster.create') }}"class="btn btn-primary btn-sm" style="float:right">Add New Bank</a>
-        @endif
+        <span class="card-title">Manage Applications</span>
       </div>
       <div class="card-body">
         <table class="table table-striped table-sm datatable">
@@ -32,7 +29,7 @@
               <td>{{ $item->project_outlay }}</td>
               <td>{{ $item->status }} </td>
               <td>
-                <a href="{{ route('appReceivedSanctioned.show', $item->id) }}" class="btn btn-sm btn-dark">Update Info</a>
+                <a href="{{ route('bankAppShow', $item->id) }}" class="btn btn-sm btn-dark">Update Info</a>
               </td>
             </tr>
             @endforeach

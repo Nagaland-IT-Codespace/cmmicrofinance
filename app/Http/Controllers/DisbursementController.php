@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AppReceivedSanctioned;
-use App\Models\ApplicationForm;
+use App\Models\Disbursement;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Auth;
-use Session;
 
-class AppReceivedSanctionedController extends Controller
+class DisbursementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +14,7 @@ class AppReceivedSanctionedController extends Controller
      */
     public function index()
     {
-        $date = Carbon::now()->format('Y-m');
-        $data = ApplicationForm::where('upload_date', $date)->where('status', 'APPROVED')->get();
-        return view('appReceivedSanctioned.index', compact('data'));
+        //
     }
 
     /**
@@ -47,22 +41,21 @@ class AppReceivedSanctionedController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AppReceivedSanctioned  $appReceivedSanctioned
+     * @param  \App\Models\Disbursement  $disbursement
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Disbursement $disbursement)
     {
-        $data = ApplicationForm::find($id);
-        return view('appReceivedSanctioned.edit', compact('data'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AppReceivedSanctioned  $appReceivedSanctioned
+     * @param  \App\Models\Disbursement  $disbursement
      * @return \Illuminate\Http\Response
      */
-    public function edit(AppReceivedSanctioned $appReceivedSanctioned)
+    public function edit(Disbursement $disbursement)
     {
         //
     }
@@ -71,10 +64,10 @@ class AppReceivedSanctionedController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AppReceivedSanctioned  $appReceivedSanctioned
+     * @param  \App\Models\Disbursement  $disbursement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AppReceivedSanctioned $appReceivedSanctioned)
+    public function update(Request $request, Disbursement $disbursement)
     {
         //
     }
@@ -82,10 +75,10 @@ class AppReceivedSanctionedController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AppReceivedSanctioned  $appReceivedSanctioned
+     * @param  \App\Models\Disbursement  $disbursement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AppReceivedSanctioned $appReceivedSanctioned)
+    public function destroy(Disbursement $disbursement)
     {
         //
     }

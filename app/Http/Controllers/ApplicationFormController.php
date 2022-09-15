@@ -64,7 +64,7 @@ class ApplicationFormController extends Controller
             'expected_outcome' => $request->expected_outcome,
             'project_duration' => $request->project_duration,
             'project_outlay' => $request->project_outlay,
-            'upload_date' => Carbon::now()->format('Y-m'),
+            'year_month' => Carbon::now()->format('Y-m'),
             'status' => 'APPROVED',
           ]);
 
