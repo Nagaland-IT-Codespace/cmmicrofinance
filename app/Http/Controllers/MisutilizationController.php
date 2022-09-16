@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Misutilization;
+use App\Models\ApplicationForm;
 use Illuminate\Http\Request;
-
+use Auth;
+use Session;
+use Carbon\Carbon;
 class MisutilizationController extends Controller
 {
     /**
@@ -14,7 +17,8 @@ class MisutilizationController extends Controller
      */
     public function index()
     {
-        //
+        $data = Misutilization::all();
+        return view('misUtilization.index', compact('data'));
     }
 
     /**
@@ -24,7 +28,8 @@ class MisutilizationController extends Controller
      */
     public function create()
     {
-        //
+        $appForms = ApplicationForm::where('status', 'SANCTIONED')->get();
+        return view('misUtilization.add', compact('appForms'));
     }
 
     /**
@@ -35,7 +40,21 @@ class MisutilizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $appForm = ApplicationForm::find($request->app_id);
+        $data = Misutilization::create([
+          'app_id' => $request->app_id,
+          'scheme_id' => $appForm->scheme_id,
+          'bank_id' => $appForm->bank_id,
+          'total_amount_released' => $request->total_amount_released,
+          'date_last_release' => Carbon::parse($request->date_last_release)->format('Y-m-d'),
+          'repayment_due' => $request->repayment_due,
+          'ac_regular' => $request->ac_regular,
+          'date_visit' => Carbon::parse($request->date_visit)->format('Y-m-d'),
+          'utilized' => $request->utilized,
+          'nature_misutilization' => $request->nature_misutilization,
+        ]);
+
+        return redirect()->route('misUtilization.index');
     }
 
     /**
@@ -44,9 +63,10 @@ class MisutilizationController extends Controller
      * @param  \App\Models\Misutilization  $misutilization
      * @return \Illuminate\Http\Response
      */
-    public function show(Misutilization $misutilization)
+    public function show($id)
     {
-        //
+        $data = Misutilization::find($id);
+        return view('misUtilization.show', compact('data'));
     }
 
     /**
