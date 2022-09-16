@@ -14,7 +14,10 @@ class SubsidyController extends Controller
      */
     public function index()
     {
-        //
+        // get All subsidy and return to view
+        $subsidies = Subsidy::all();
+        return view('subsidy.index', compact('subsidies'));
+
     }
 
     /**
@@ -24,7 +27,7 @@ class SubsidyController extends Controller
      */
     public function create()
     {
-        //
+        return view('subsidy.add');
     }
 
     /**
