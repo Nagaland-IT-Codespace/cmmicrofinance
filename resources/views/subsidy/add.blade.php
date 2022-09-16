@@ -9,7 +9,20 @@
                 <div class="card-body">
                     <form class="" action="{{ route('subsidy.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
+
                         <div class="row">
+                            <div class=" col-md-6">
+                                <div class="form-group">
+                                    <label for="bank_id">Bank & Branch</label>
+                                    <select type="text" class="form-control" id="bank_id" name="bank_id" required>
+                                        <option selected disabled>--Select--</option>
+                                        @foreach ($banks as $item)
+                                            <option value="{{ $item->id }}"> {{ $item->name }} :
+                                                {{ $item->branch }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="dlic_meeting_date">Date of DLIC Meeting</label>
@@ -62,16 +75,16 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="amount_subsidy_received">Amount of subsidy received</label>
-                                    <input type="number" name="amount_subsidy_received" class="form-control"
-                                        value="{{ old('amount_subsidy_received') }}">
+                                    <label for="amount_subsidy_released">Amount of subsidy released</label>
+                                    <input type="number" name="amount_subsidy_released" class="form-control"
+                                        value="{{ old('amount_subsidy_released') }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="date_of_disbursement">Date of Disbursement</label>
-                                    <input type="date" name="date_of_disbursement" class="form-control"
-                                        value="{{ old('date_of_disbursement') }}">
+                                    <label for="amount_subsidy_outstanding">Amount of subsidy O/S</label>
+                                    <input type="number" name="amount_subsidy_outstanding" class="form-control"
+                                        value="{{ old('amount_subsidy_outstanding') }}">
                                 </div>
                             </div>
 

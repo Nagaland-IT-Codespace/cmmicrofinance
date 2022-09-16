@@ -14,6 +14,7 @@
                     <table class="table table-striped table-sm datatable">
                         <thead>
                             <tr>
+                                <th>Bank Name</th>
                                 <th>Date of DLIC Meeting</th>
                                 <th>Rate of receipt of Applications by Bank</th>
                                 <th>No. of Applications received</th>
@@ -28,6 +29,7 @@
                         <tbody>
                             @foreach ($subsidies as $item)
                                 <tr>
+                                    <td>{{ $item->bank->name }}:{{ $item->bank->branch }}</td>
                                     <td>{{ $item->dlic_meeting_date }}</td>
                                     <td>{{ $item->rate_of_receipt_applications }}</td>
                                     <td>{{ $item->no_of_applications_received }}</td>

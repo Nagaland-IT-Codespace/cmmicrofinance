@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BankMaster;
 use App\Models\Subsidy;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SubsidyController extends Controller
@@ -27,7 +29,8 @@ class SubsidyController extends Controller
      */
     public function create()
     {
-        return view('subsidy.add');
+        $banks = BankMaster::all();
+        return view('subsidy.add',compact('banks'));
     }
 
     /**
@@ -38,7 +41,32 @@ class SubsidyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'bank_id' => 'required',
+        //     'dlic_meeting_date' => 'required',
+        //     'rate_of_receipt_applications' => 'required',
+        //     'no_of_applications_received' => 'required',
+        //     'amount_loan_sanctioned' => 'required',
+        //     'total_eligible_subsidy' => 'required',
+        //     'date_claim_subsidy' => 'required',
+        //     'date_receipt_subsidy' => 'required',
+        //     'amount_subsidy_released' => 'required',
+        //     'amount_subsidy_outstanding' => 'required',
+        // ]);
+        $data=Subsidy::create([
+            'bank_id' => $request->bank_id,
+            'dlic_meeting_date' => Carbon::parse($request->dlic_meeting_date)->format('Y-m-d'),
+            'rate_of_receipt_applications' => $request->rate_of_receipt_applications,
+            'no_of_applications_received' => $request->no_of_applications_received,
+            'amount_loan_sanctioned' => $request->amount_loan_sanctioned,
+            'total_eligible_subsidy' => $request->total_eligible_subsidy,
+            'date_claim_subsidy' => Carbon::parse( $request->date_claim_subsidy)->format('Y-m-d'),
+            'date_receipt_subsidy' => Carbon::parse( $request->date_receipt_subsidy)->format('Y-m-d'),
+            'amount_subsidy_released' => $request->amount_subsidy_released,
+            'amount_subsidy_outstanding' => $request->amount_subsidy_outstanding,
+        ]);
+        return redirect()->route('subsidy.index')->with('success','Subsidy created successfully.');
+
     }
 
     /**
