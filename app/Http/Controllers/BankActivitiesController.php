@@ -41,4 +41,5 @@ class BankActivitiesController extends Controller
       ]);
       return redirect()->route('bankAppList');
     }
+
 }

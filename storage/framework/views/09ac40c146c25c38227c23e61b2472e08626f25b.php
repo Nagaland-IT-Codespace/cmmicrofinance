@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="<?php echo e(route('disbursement.index')); ?>">
                         <i class='bx bx-notepad'></i>
                         <span>Manage Disbursements</span>
                     </a>
@@ -100,6 +100,15 @@
                     <a class="nav-link" href="<?php echo e(route('misUtilization.index')); ?>">
                         <i class='bx bx-notepad'></i>
                         <span>Manage MisUtilizations</span>
+                    </a>
+                </li>
+                <?php endif; ?>
+                <?php if(Auth::User()->role == 'DEPT'): ?>
+                <li>
+                    <a class="nav-link" href="<?php echo e(route('grievance.index')); ?>">
+                        
+                        <i class='bx bx-help-circle'></i>
+                        <span>Grievances</span>
                     </a>
                 </li>
                 <?php endif; ?>

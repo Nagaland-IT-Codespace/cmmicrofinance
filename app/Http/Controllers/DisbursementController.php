@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Disbursement;
+use App\Models\ApplicationForm;
 use Illuminate\Http\Request;
+use Auth;
+use Carbon\Carbon;
+use Session;
 
 class DisbursementController extends Controller
 {
@@ -14,7 +18,8 @@ class DisbursementController extends Controller
      */
     public function index()
     {
-        //
+        $data = Disbursement::all();
+        return view('disbursement.index', compact('data'));
     }
 
     /**
@@ -24,7 +29,8 @@ class DisbursementController extends Controller
      */
     public function create()
     {
-        //
+        $appForms = ApplicationForm::where('status', 'SANCTIONED')->get();
+        return view('disbursement.add', compact('appForms'));
     }
 
     /**
@@ -35,7 +41,15 @@ class DisbursementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Disbursement::create([
+          'app_id' => $request->app_id,
+          'date_of_disbursement' => Carbon::parse($request->date_of_disbursement)->format('Y-m-d'),
+          'amount_disbursed' => $request->amount_disbursed,
+          'subsidy_credited_to_loan_ac' => $request->subsidy_credited_to_loan_ac,
+          'year_month' => Carbon::now()->format('Y-m'),
+        ]);
+
+        return redirect()->route('disbursement.index');
     }
 
     /**

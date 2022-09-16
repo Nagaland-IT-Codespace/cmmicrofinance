@@ -4,33 +4,29 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <span class="card-title">Manage Applications</span>
+        <span class="card-title">Manage Disbursements</span>
       </div>
       <div class="card-body">
+        <a href="{{ route('disbursement.create') }}" class="btn btn-sm btn-primary">Add</a>
+        <hr>
         <table class="table table-striped table-sm datatable">
           <thead>
             <tr>
               <th>#</th>
               <th>Beneficiary Name</th>
-              <th>Address</th>
-              <th>Mobile</th>
-              <th>TFO</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Amount Disbursed</th>
+              <th>Date of Disbursement</th>
+              <th>Subsidy Credited to Loan A/C</th>
             </tr>
           </thead>
           <tbody>
             @foreach($data as $item)
             <tr>
               <td>{{ $loop->iteration }}</td>
-              <td>{{ $item->name_of_proposee }}</td>
-              <td>{{ $item->address_of_proposee }}</td>
-              <td>{{ $item->mobile }}</td>
-              <td>{{ $item->project_outlay }}</td>
-              <td>{{ $item->status }} </td>
-              <td>
-                <a href="{{ route('bankAppShow', $item->id) }}" class="btn btn-sm btn-dark">Update Info</a>
-              </td>
+              <td>{{ $item->appForm->name_of_proposee }}</td>
+              <td>{{ $item->amount_disbursed }}</td>
+              <td>{{ Carbon\Carbon::parse($item->date_of_disbursement)->format('d-m-Y') }}</td>
+              <td>{{ $item->subsidy_credited_to_loan_ac }}</td>
             </tr>
             @endforeach
           </tbody>

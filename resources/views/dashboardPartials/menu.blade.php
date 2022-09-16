@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('disbursement.index')}}">
                         <i class='bx bx-notepad'></i>
                         <span>Manage Disbursements</span>
                     </a>

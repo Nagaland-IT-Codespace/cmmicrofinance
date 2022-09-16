@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']],function()
     Route::post('bankAppUpdate', [App\Http\Controllers\BankActivitiesController::class, 'bankAppUpdate' ])->name('bankAppUpdate');
     Route::resource('bankMaster', App\Http\Controllers\BankMasterController::class);
     Route::resource('subsidy', App\Http\Controllers\SubsidyController::class);
+    Route::resource('disbursement', App\Http\Controllers\DisbursementController::class);
     Route::resource('misUtilization', App\Http\Controllers\MisutilizationController::class);
 
 });
