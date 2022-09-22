@@ -4,7 +4,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <span class="card-title">Manage Disbursements</span>
+        <span class="card-title">Manage Misutilization</span>
       </div>
       <div class="card-body">
         <a href="{{ route('misUtilization.create') }}" class="btn btn-sm btn-primary">Add</a>
