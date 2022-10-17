@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('grievance_id')->nullable();
             $table->string('from_dept')->nullable();
             $table->string('to_dept')->nullable();
+            $table->text('reason')->nullable();
             $table->timestamps();
         });
     }

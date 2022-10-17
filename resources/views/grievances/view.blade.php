@@ -60,6 +60,10 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="dept_id">Reason for Transfer</label>
+                            <textarea name="reason" id="reason" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
                             <button type="submit" class="btn btn-primary">Transfer</button>
 
                         </div>

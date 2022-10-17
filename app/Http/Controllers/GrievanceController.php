@@ -118,6 +118,7 @@ class GrievanceController extends Controller
             'grievance_id' => $id,
             'from_dept' => $oldDept,
             'to_dept' => $newDept,
+            'reason' => $request->reason,
         ]);
 
         Session::flash('Grievance updated', 'Grievance successfully updated!');
