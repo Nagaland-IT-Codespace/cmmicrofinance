@@ -78,12 +78,13 @@
                 </div>
                 <div class="modal-body">
                     {{-- form with email,subject and body --}}
-                    <form action="#" method="POST">
+                    <form action="{{ route('grievanceReply.store') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="grievance_id" value="{{$data->id}}" />
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" class="form-control"
-                                value="{{ $data->email }}">
+                                value="{{ $data->email }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
@@ -91,7 +92,7 @@
                         </div>
                         <div class="form-group">
                             <label for="body">Body</label>
-                            <textarea name="body" id="body" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="reply" id="body" cols="30" rows="10" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Send</button>

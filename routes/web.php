@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth']],function()
     Route::resource('subsidy', App\Http\Controllers\SubsidyController::class);
     Route::resource('disbursement', App\Http\Controllers\DisbursementController::class);
     Route::resource('misUtilization', App\Http\Controllers\MisutilizationController::class);
+    Route::resource('grievanceReply', App\Http\Controllers\GrievanceReplyController::class);
 
 });
 
