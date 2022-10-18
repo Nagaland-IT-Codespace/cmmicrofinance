@@ -10,8 +10,8 @@
                             Office of the Agriculture Production Commissioner <br>
                             New Secretariate Complex<br>
                             Kohima, Nagaland<br><br>
-                            <strong>Phone:</strong> <br>
-                            <strong>Email:</strong> cmmfi@nagaland.gov.in<br>
+                            {{-- <strong>Phone:</strong> <br>
+                            <strong>Email:</strong> cmmfi@nagaland.gov.in<br> --}}
                         </p>
                     </div>
                 </div>
