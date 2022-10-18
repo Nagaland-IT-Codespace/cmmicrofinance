@@ -48,22 +48,22 @@
           </div>
           <div class="col-md-3">
 
-            <x-form-select label="Category" name="category" class="form-control" required>
+            <x-form-select label="Type" name="type" class="form-control" required>
               <option value="" selected disable>Select..</option>
               <option value="FILE">File</option>
               <option value="POST">Post</option>
               <option value="LINK">Link</option>
             </x-form-select>
 
-            <x-form-select label="Status" name="status" class="form-control" required>
-              <option value="" selected disable>Select..</option>
-              <option value="PUBLISHED">Published</option>
-              <option value="ARCHIVED">Archive</option>
+            <x-form-select label="Category" name="category" class="form-control" required>
+              <option value="" selected>Select..</option>
+              <option value="Notification">Notification</option>
+              <option value="Post">Post</option>
             </x-form-select>
 
             <div class="form-group">
               <label for="post_date">Post Date</label>
-              <input type="text" name="post_date" value="" data-plugin-datepicker class="form-control" readonly required>
+              <input type="text" name="date" value="" data-plugin-datepicker class="form-control" readonly required>
             </div>
             <button type="submit" class="btn btn-primary btn-block mt-4">Publish</button>
           </form>
@@ -134,21 +134,26 @@
     // initialize category
     $('#link').hide();
     $('#file').hide();
-    $('#category').val('POST');
+    $('#type').val('POST');
 
     // category change function
-    $('#category').change(function(){
-      $('.category').hide();
+    $('#type').change(function(){
       if($(this).val() == "FILE")
       {
         $('#file').show();
+        $('#link').hide();
+        $('#content').hide()
       }else if($(this).val() == "LINK")
       {
         $('#link').show();
+        $('#file').hide();
+        $('#content').hide();
       }
       else if($(this).val() == "POST")
       {
         $('#content').show();
+        $('#link').hide();
+        $('#file').hide();
       }
     });
   });
