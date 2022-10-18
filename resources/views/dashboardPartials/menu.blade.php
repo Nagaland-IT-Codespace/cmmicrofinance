@@ -54,6 +54,12 @@
                             <span>Reports</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="{{route('post.index')}}">
+                            <i class='bx bxs-report'></i>
+                            <span>Post</span>
+                        </a>
+                    </li>
                 @endif
 
                 @if (Auth::user()->role == 'DC')
