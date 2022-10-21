@@ -26,7 +26,7 @@
                                 <td style="font-size:14px">{{ $item->title }}</td>
                                 <td style="font-size:14px">{{ Carbon\Carbon::parse($item->date)->format('d M Y') }}</td>
                                 <td style="font-size:14px">
-                                    <a href="{{ url('/posts/' . $item->id) }}" class="btn btn-primary btn-sm">View / Download</a>
+                                    <a href="{{Storage::url($item->link)}}" class="btn btn-primary btn-sm">View / Download</a>
                                 </td>
                             </tr>
                     </tbody>
