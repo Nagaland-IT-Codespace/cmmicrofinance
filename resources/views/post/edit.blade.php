@@ -20,7 +20,7 @@
   </div>
 </header>
 
-<div class="row">
+<div class="row my-5">
   <div class="col-md-12">
     <div class="card">
       <header class="card-header">
@@ -92,7 +92,7 @@
           },
         plugins: 'code,image,link,table',
         init_instance_callback : function(editor) {
-          editor.setContent('{!! preg_replace( "/\r|\n/","",$post->content) !!}');
+          editor.setContent('{!! $content !!}');
       },
       images_upload_handler: function (blobInfo, success, failure) {
            var xhr, formData;
@@ -128,15 +128,7 @@
       dateFormat: 'dd-mm-yy'
     });
 
-    @if(Session::has('success'))
-    new PNotify({
-      title: 'Success',
-      text: '{{Session::get("success")}}',
-      type: 'success',
-      delay:1500,
-      shadow: true
-    });
-    @endif
+   
     // initialize category
     @if($post->type !== "POST")
     $('#content').hide();
@@ -169,4 +161,5 @@
     $('#type').val('{{$post->type}}');
   });
 </script>
+<x-swal-message/>
 @endsection

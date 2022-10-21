@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 //Non Authenticated Routes
 Route::get('/', [App\Http\Controllers\PageController::class, 'welcome'])->name('/');
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contact');
+Route::get('notifications', [App\Http\Controllers\PageController::class, 'notifications'])->name('notifications');
+Route::get('gallery', [App\Http\Controllers\PageController::class, 'gallery'])->name('gallery');
 Route::resource('grievance', App\Http\Controllers\GrievanceController::class);
 Route::get('reload-captcha', [App\Http\Controllers\CaptchaController::class, 'reloadCaptcha']);
 
@@ -29,6 +31,7 @@ Route::group(['middleware' => ['auth']],function()
     Route::resource('districtMaster', App\Http\Controllers\DistrictMasterController::class);
     Route::resource('userMaster', App\Http\Controllers\UserMasterController::class);
     Route::resource('applicationForm', App\Http\Controllers\ApplicationFormController::class);
+    Route::resource('gallery', App\Http\Controllers\GalleryController::class);
     Route::resource('post', App\Http\Controllers\PostController::class);
     Route::post('postFiles', [App\Http\Controllers\PostController::class, 'fileStore'])->name('postFiles');
 

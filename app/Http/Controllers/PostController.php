@@ -32,7 +32,11 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
+      $content = preg_replace( "/\n|\r/","",$post->content);
+      $content = str_replace("'","\'",$content);
+      $content = str_replace('"','\"',$content);
       return view('post.edit',[
+        'content' => $content,
         'post' => $post,
       ]);
     }
@@ -83,8 +87,6 @@ class PostController extends Controller
       } catch (\Exception $e) {
         dd($e);
       }
-
-
       Session::flash('success','Post created succesfully');
       return redirect()->route('post.edit',$post);
     }
