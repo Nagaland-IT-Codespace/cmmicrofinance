@@ -20,7 +20,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($posts as $post)
+            @foreach($galleries as $post)
             <tr class="tr-{{$post->id}}">
               <td>{{$post->title}}</td>
               <td>{{$post->type}}</td>
@@ -34,7 +34,7 @@
             @endforeach
           </tbody>
         </table>
-        {{$posts->links()}}
+        {{$galleries->links()}}
       </div>
     </div>
   </div>
