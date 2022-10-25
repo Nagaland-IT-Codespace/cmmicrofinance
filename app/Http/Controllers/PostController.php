@@ -97,13 +97,15 @@ class PostController extends Controller
       try {
         if($request->type == "FILE")
         {
+          $fileName = $request->file('file')->getClientOriginalName();
           $post->update([
             'title' => $request->title,
             'content' => NULL,
             'category' => $request->category,
             'type' => $request->type,
             'slug' => Str::slug($request->title,'-'),
-            'link' => $request->file('file')->store('public/PostFiles'),
+            // 'link' => $request->file('file')->store('public/PostFiles'),
+            'link' => $request->file('file')->storeAs('public/PostFiles',$fileName),
             'date' => \Carbon\Carbon::parse($request->date)->format('Y-m-d'),
           ]);
         }else if($request->type == "LINK"){
