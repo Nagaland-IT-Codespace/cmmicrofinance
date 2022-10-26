@@ -44,13 +44,18 @@
 		<script src="{{asset('dashboardAssets/vendor/modernizr/modernizr.js')}}"></script>
 		<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="{{ asset('vendor/megaphone/css/megaphone.css') }}">
 		@livewireStyles
 	</head>
-	<body > 
+	<body >
+
+
+
 		<section class="body">
 
 			<!-- start: header -->
 			<header class="header">
+
 				<div class="logo-container">
 					<a href="{{url('/')}}" class="logo">
 						<a href="/" class="logo"><img src="{{asset('assets/img/cmmfi-logo-dash.png')}}" height="50"/></a>
@@ -60,16 +65,21 @@
 						<i class="fas fa-bars" aria-label="Toggle sidebar"></i>
 					</div>
 
+
 				</div>
+                {{--  --}}
 
 				<!-- start: search & user box -->
 				<div class="header-right">
 
-					<span class="separator"></span>
 
 					<span class="separator"></span>
+
+
+                    @livewire('megaphone')
 
 					<div id="userbox" class="userbox">
+
 						<a href="#" data-toggle="dropdown">
 							<figure class="profile-picture">
 								<img src="{{asset('dashboardAssets/img/!logged-user.jpg')}}" alt="Joseph Doe" class="rounded-circle" data-lock-picture="{{asset('dashboardAssets/img/!logged-user.jpg')}}" />
@@ -135,6 +145,7 @@
 						</div>
 					</header>
 
+
 					@yield('content')
 
 				</section>
@@ -195,7 +206,7 @@
 		$(document).ready(function () {
 				$('.datatable').DataTable();
 		});
-		</script>	
-		@livewireScripts	
+		</script>
+		@livewireScripts
 	</body>
 </html>
