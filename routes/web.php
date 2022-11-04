@@ -16,18 +16,25 @@ use Illuminate\Support\Facades\Route;
 //Non Authenticated Routes
 Route::get('/', [App\Http\Controllers\PageController::class, 'welcome'])->name('/');
 Route::get('contact', [App\Http\Controllers\PageController::class, 'contact'])->name('contact');
+Route::get('notifications', [App\Http\Controllers\PageController::class, 'notifications'])->name('notifications');
+Route::get('gallery', [App\Http\Controllers\PageController::class, 'gallery'])->name('gallery');
 Route::resource('grievance', App\Http\Controllers\GrievanceController::class);
 Route::get('reload-captcha', [App\Http\Controllers\CaptchaController::class, 'reloadCaptcha']);
 
 //Authenticated Page Routes
 Route::group(['middleware' => ['auth']],function()
 {
+    // admin routes
     Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'homeRedirector' ])->name('dashboard');
     Route::resource('schemeMaster', App\Http\Controllers\SchemeMasterController::class);
     Route::resource('deptMaster', App\Http\Controllers\DeptMasterController::class);
     Route::resource('districtMaster', App\Http\Controllers\DistrictMasterController::class);
     Route::resource('userMaster', App\Http\Controllers\UserMasterController::class);
     Route::resource('applicationForm', App\Http\Controllers\ApplicationFormController::class);
+    Route::resource('gallery', App\Http\Controllers\GalleryController::class);
+    Route::resource('post', App\Http\Controllers\PostController::class);
+    Route::post('postFiles', [App\Http\Controllers\PostController::class, 'fileStore'])->name('postFiles');
+
     //Bankers routes
     Route::get('bankAppList', [App\Http\Controllers\BankActivitiesController::class, 'bankAppList' ])->name('bankAppList');
     Route::get('bankAppShow/{id}', [App\Http\Controllers\BankActivitiesController::class, 'bankAppShow' ])->name('bankAppShow');
@@ -37,7 +44,6 @@ Route::group(['middleware' => ['auth']],function()
     Route::resource('disbursement', App\Http\Controllers\DisbursementController::class);
     Route::resource('misUtilization', App\Http\Controllers\MisutilizationController::class);
     Route::resource('grievanceReply', App\Http\Controllers\GrievanceReplyController::class);
-
 });
 
 require __DIR__.'/auth.php';

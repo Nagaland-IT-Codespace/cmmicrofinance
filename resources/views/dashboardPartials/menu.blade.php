@@ -2,6 +2,7 @@
     <div class="nano-content">
         <nav id="menu" class="nav-main" role="navigation">
             <ul class="nav nav-main">
+
                 <li>
                     <a class="nav-link" href="{{ route('dashboard') }}">
                         <i class="bx bx-home-alt" aria-hidden="true"></i>
@@ -52,6 +53,12 @@
                         <a class="nav-link" href="#">
                             <i class='bx bxs-report'></i>
                             <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{route('post.index')}}">
+                            <i class='bx bxs-report'></i>
+                            <span>Post</span>
                         </a>
                     </li>
                 @endif

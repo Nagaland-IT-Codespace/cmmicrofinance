@@ -1525,10 +1525,9 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
-  padding: 15px 0;
+  padding: 30px 0;
   background: #f0f4f8;
   min-height: 40px;
-  margin-top: 78px;
 }
 
 .breadcrumbs h2 {

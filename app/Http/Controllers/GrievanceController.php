@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\DeptMaster;
 use App\Models\Grievance;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use MBarlow\Megaphone\Types\Important;
 
 class GrievanceController extends Controller
 {
@@ -65,6 +66,20 @@ class GrievanceController extends Controller
 
         ]);
         $grivance = Grievance::create($request->all());
+        $notification = new Important(
+            'New grievenace',
+            'New grievenace has been added by ' . $request->name,
+        );
+        // find user by department id
+        $users = User::where('dept', $request->dept_id)->get();
+        foreach ($users as $user) {
+            $user->notify($notification);
+        }
+
+
+
+
+
         Session::flash('Grievance added', 'Grievance successfully added!');
         return redirect()->back();
     }
@@ -110,7 +125,7 @@ class GrievanceController extends Controller
 
         $grievance = Grievance::find($id);
         $oldDept = $grievance->dept_id;
-        $newDept= $request->dept_id;
+        $newDept = $request->dept_id;
         $grievance->update([
             'dept_id' => $newDept,
         ]);
@@ -135,5 +150,4 @@ class GrievanceController extends Controller
     {
         //
     }
-
 }
