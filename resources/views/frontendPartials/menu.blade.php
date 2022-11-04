@@ -1,15 +1,15 @@
 <nav id="navbar" class="navbar">
-  <ul class="bi bi-list">
+  <ul>
     <li><a class="nav-link" href="{{url('/')}}">Home</a></li>
     <li><a class="nav-link scrollto" href="#about">About</a></li>
     <li><a class="nav-link scrollto" href="#services">Downloads</a></li>
     <li><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
     <li>
       @auth
-      <a class="getstarted scrollto" href={{url('/login')}}>Dashboard</a>
+      <a class="getstarted scrollto nav-link" href={{url('/login')}}>Dashboard</a>
       @endauth
       @guest
-      <a class="getstarted scrollto" href={{url('/login')}}>Login</a>
+      <a class="getstarted scrollto nav-link" href={{url('/login')}}>Login</a>
       @endguest
     </li>
   </ul>
