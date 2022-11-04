@@ -6,10 +6,10 @@
     <li><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
     <li>
       @auth
-      <a class="getstarted scrollto nav-link" href={{url('/login')}}>Dashboard</a>
+      <a class="scrollto nav-link" href={{url('/login')}}>Dashboard</a>
       @endauth
       @guest
-      <a class="getstarted scrollto nav-link" href={{url('/login')}}>Login</a>
+      <a class="scrollto nav-link" href={{url('/login')}}>Login</a>
       @endguest
     </li>
   </ul>
