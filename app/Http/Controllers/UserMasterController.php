@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\DistrictMaster;
 use App\Models\DeptMaster;
-use Auth;
-use Session;
-use Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserMasterController extends Controller
 {
@@ -23,6 +23,22 @@ class UserMasterController extends Controller
       return view('users.index', [
         'data' => $data,
       ]);
+    }
+
+    public function changePassword(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        //check old password with current user password
+        if (Hash::check($request->oldPassword, $user->password)) {
+            //check new password and confirm password are same
+            $user->password = Hash::make($request->newPassword);
+            $user->save();
+            Session::flash('success', 'Password changed successfully');
+            return redirect()->back();
+        } else {
+            Session::flash('error', 'Old password is not correct');
+            return redirect()->back();
+        }
     }
 
     /**

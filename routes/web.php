@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']],function()
     Route::resource('gallery', App\Http\Controllers\GalleryController::class);
     Route::resource('post', App\Http\Controllers\PostController::class);
     Route::post('postFiles', [App\Http\Controllers\PostController::class, 'fileStore'])->name('postFiles');
+    Route::post('changePassword', App\Http\Controllers\UserMasterController::class, 'changePassword')->name('changePassword');
 
     //Bankers routes
     Route::get('bankAppList', [App\Http\Controllers\BankActivitiesController::class, 'bankAppList' ])->name('bankAppList');

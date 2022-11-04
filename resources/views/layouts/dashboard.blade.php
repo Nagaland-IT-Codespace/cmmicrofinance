@@ -99,6 +99,9 @@
 									<a role="menuitem" tabindex="-1" href="{{route('dashboard')}}"><i class="bx bx-user-circle"></i> My Dashboard</a>
 								</li>
 								<li>
+									<a role="menuitem"  data-bs-toggle="modal" data-bs-target="#exampleModal" tabindex="-1" href=""><i class="bx bx-user-circle"></i> Change Password</a>
+								</li>
+								<li>
 									<a role="menuitem" tabindex="-1" href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bx bx-power-off"></i> Logout</a>
 								</li>
 
@@ -150,6 +153,40 @@
 
 				</section>
 
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <form action="{{ route('changePassword') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Old Password</label>
+                                    <input type="password" class="form-control" name="oldPassword">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">New Password</label>
+                                    <input type="password" class="form-control" name="newPassword">
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
 
   	<!-- Vendor -->
 		<script src="{{asset('dashboardAssets/vendor/jquery-browser-mobile/jquery.browser.mobile.js')}}"></script>
@@ -209,4 +246,6 @@
 		</script>
 		@livewireScripts
 	</body>
+
+
 </html>
