@@ -76,7 +76,7 @@
 					<span class="separator"></span>
 
 
-                    @livewire('megaphone')
+                    {{-- @livewire('megaphone') --}}
 
 					<div id="userbox" class="userbox">
 
