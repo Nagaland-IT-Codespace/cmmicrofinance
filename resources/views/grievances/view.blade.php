@@ -121,6 +121,7 @@
                                 <th>From Dept</th>
                                 <th>To Dept</th>
                                 <th>Transfered On</th>
+                                <th>Reason</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -129,6 +130,7 @@
                                     <td>{{ $log->fromDept->name }}</td>
                                     <td>{{ $log->toDept->name }}</td>
                                     <td>{{ $log->created_at }}</td>
+                                    <td>{{ $log->reason }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
