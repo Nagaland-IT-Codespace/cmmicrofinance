@@ -5,7 +5,9 @@
     <div class="card">
       <div class="card-header">
         <span class="card-title">Scheme Master</span>
+        @if(Auth::user()->role == 'ADMIN')
         <a class="btn btn-primary btn-sm modal-with-move-anim" style="float:right" href="#addSchemeModal"><i class='bx bx-list-plus' ></i> Add Scheme</a>
+        @endif
       </div>
       <div class="card-body">
         <div class="table-responsive">

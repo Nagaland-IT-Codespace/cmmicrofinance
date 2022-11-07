@@ -19,16 +19,27 @@ class DisbursementController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role == 'LBANK') {
-            $data = Disbursement::all();
-            return view('disbursement.index', compact('data'));
-        }else{
-            $data=Disbursement::whereHas('appForm', function($q){
-                $q->where('bank_id', Auth::user()->bank);
-            })->get();
-            return view('disbursement.index', compact('data'));
+        switch (Auth::user()->role) {
+            case 'LBANK':
+                $data = Disbursement::all();
+
+            case 'SBANK':
+                $data = Disbursement::whereHas('appForm', function ($q) {
+                    $q->where('bank_id', Auth::user()->bank);
+                })->get();
+            case 'ADMIN':
+                $data = Disbursement::all();
+            case 'DC':
+                $data = Disbursement::whereHas('appForm', function ($q) {
+                    $q->where('district_id', Auth::user()->district);
+                })->get();
+            default:
+                $data = Disbursement::all();
+                break;
         }
+        return view('disbursement.index', compact('data'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -40,9 +51,8 @@ class DisbursementController extends Controller
         if (Auth::user()->role == 'LBANK') {
             $data = ApplicationForm::all();
             return view('disbursement.add', compact('data'));
-        }
-        else{
-            $data=ApplicationForm::where('bank_id', Auth::user()->bank)->get();
+        } else {
+            $data = ApplicationForm::where('bank_id', Auth::user()->bank)->get();
             return view('disbursement.add', compact('data'));
         }
     }

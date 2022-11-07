@@ -7,7 +7,9 @@
         <span class="card-title">Manage Disbursements</span>
       </div>
       <div class="card-body">
+        @if(Auth::user()->role == 'LBANK' || Auth::user()->role == 'SBANK')
         <a href="{{ route('disbursement.create') }}" class="btn btn-sm btn-primary">Add</a>
+        @endif
         <hr>
         <table class="table table-striped table-sm datatable">
           <thead>

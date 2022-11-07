@@ -2,27 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\DashboardService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    private $dashboardService;
+    public function __construct(DashboardService $dashboardService)
+    {
+        $this->dashboardService = $dashboardService;
+    }
+
     public function homeRedirector()
     {
-        if (Auth::User()->role == 'ADMIN') {
-            return view('dashboard');
-        }
-        if (Auth::User()->role == 'DEPT') {
-            return view('dashboard');
-        }
-        if (Auth::User()->role == 'DC') {
-            return view('dashboard');
-        }
-        if (Auth::User()->role == 'SBANK') {
-            return view('dashboard');
-        }
-        if (Auth::User()->role == 'LBANK') {
-            return view('dashboard');
+        switch (Auth::User()->role) {
+            case 'ADMIN':
+                $data = $this->dashboardService->getDashBoardInfoCardForAdmin();
+                return view('dashboard', compact('data'));
+                break;
+            case 'DEPT':
+                $data = $this->dashboardService->getDashBoardInfoCardForDC();
+                return view('dashboard', compact('data'));
+                break;
+            case 'DC':
+                $data = $this->dashboardService->getDashBoardInfoCardForDC();
+                return view('dashboard', compact('data'));
+                break;
+            case 'SBANK':
+                $data = $this->dashboardService->getDashBoardInfoCardForSBANK();
+                return view('dashboard', compact('data'));
+                break;
+            case 'LBANK':
+                $data = $this->dashboardService->getDashBoardInfoCardForLBANK();
+                return view('dashboard', compact('data'));break;
+            default:
+                return view('dashboard');
+                break;
         }
     }
 }
