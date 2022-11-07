@@ -19,26 +19,24 @@ class HomeController extends Controller
         switch (Auth::User()->role) {
             case 'ADMIN':
                 $data = $this->dashboardService->getDashBoardInfoCardForAdmin();
-                return view('dashboard', compact('data'));
                 break;
             case 'DEPT':
                 $data = $this->dashboardService->getDashBoardInfoCardForDC();
-                return view('dashboard', compact('data'));
                 break;
             case 'DC':
                 $data = $this->dashboardService->getDashBoardInfoCardForDC();
-                return view('dashboard', compact('data'));
                 break;
             case 'SBANK':
                 $data = $this->dashboardService->getDashBoardInfoCardForSBANK();
-                return view('dashboard', compact('data'));
                 break;
             case 'LBANK':
                 $data = $this->dashboardService->getDashBoardInfoCardForLBANK();
-                return view('dashboard', compact('data'));break;
+                break;
             default:
-                return view('dashboard');
+                $data = [];
+
                 break;
         }
+        return view('dashboard', compact('data'));
     }
 }
