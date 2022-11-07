@@ -6,6 +6,7 @@ use App\Models\BankMaster;
 use App\Models\Subsidy;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SubsidyController extends Controller
 {
@@ -17,9 +18,13 @@ class SubsidyController extends Controller
     public function index()
     {
         // get All subsidy and return to view
-        $subsidies = Subsidy::all();
-        return view('subsidy.index', compact('subsidies'));
-
+        if (Auth::user()->role == 'SBANK') {
+            $subsidies = Subsidy::where('bank_id', Auth::user()->bank)->get();
+            return view('subsidy.index', compact('subsidies'));
+        } else {
+            $subsidies = Subsidy::all();
+            return view('subsidy.index', compact('subsidies'));
+        }
     }
 
     /**
@@ -29,8 +34,13 @@ class SubsidyController extends Controller
      */
     public function create()
     {
-        $banks = BankMaster::all();
-        return view('subsidy.add',compact('banks'));
+        if (Auth::user()->role == 'SBANK') {
+            $banks = BankMaster::where('id', Auth::user()->bank)->get();
+            return view('subsidy.add', compact('banks'));
+        } else {
+            $banks = BankMaster::all();
+            return view('subsidy.add', compact('banks'));
+        }
     }
 
     /**
@@ -53,20 +63,19 @@ class SubsidyController extends Controller
         //     'amount_subsidy_released' => 'required',
         //     'amount_subsidy_outstanding' => 'required',
         // ]);
-        $data=Subsidy::create([
+        $data = Subsidy::create([
             'bank_id' => $request->bank_id,
             'dlic_meeting_date' => Carbon::parse($request->dlic_meeting_date)->format('Y-m-d'),
             'rate_of_receipt_applications' => $request->rate_of_receipt_applications,
             'no_of_applications_received' => $request->no_of_applications_received,
             'amount_loan_sanctioned' => $request->amount_loan_sanctioned,
             'total_eligible_subsidy' => $request->total_eligible_subsidy,
-            'date_claim_subsidy' => Carbon::parse( $request->date_claim_subsidy)->format('Y-m-d'),
-            'date_receipt_subsidy' => Carbon::parse( $request->date_receipt_subsidy)->format('Y-m-d'),
+            'date_claim_subsidy' => Carbon::parse($request->date_claim_subsidy)->format('Y-m-d'),
+            'date_receipt_subsidy' => Carbon::parse($request->date_receipt_subsidy)->format('Y-m-d'),
             'amount_subsidy_released' => $request->amount_subsidy_released,
             'amount_subsidy_outstanding' => $request->amount_subsidy_outstanding,
         ]);
-        return redirect()->route('subsidy.index')->with('success','Subsidy created successfully.');
-
+        return redirect()->route('subsidy.index')->with('success', 'Subsidy created successfully.');
     }
 
     /**
