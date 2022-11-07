@@ -233,7 +233,6 @@ class DashboardService
                     $q->where('district_id', $district_id);
                 }
             })->sum('amount_disbursed');
-            Log::info($scheme_array[$key]['amount_disbursed']);
             $scheme_array[$key]['department'] = DeptMaster::where('id', $value->dept_id)->first()->name;
         }
         return $scheme_array;

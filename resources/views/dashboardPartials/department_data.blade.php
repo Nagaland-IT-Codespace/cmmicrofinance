@@ -10,21 +10,18 @@
                         <label class="col-lg-3 control-label pt-2" for="inputDefault"><b>Select District</b></label>
                         <div class="col-lg-6">
                             <select class="form-control" id="inputDefault">
-                                <option value="">Select</option>
-                                <option value="ALL">State</option>
+                                <option selected>---Select District----</option>
+                                <option value="">State</option>
                                 @foreach ($districts as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
-
                             </select>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 text-right">
-                    <button class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Export as Excel</button>
-                </div>
+
             </div>
-            <table class="table table-striped mt-4">
+            <table class="table table-striped mt-4 datatable">
                 <thead>
                     <tr>
                         <th>Scheme name</th>
@@ -53,7 +50,7 @@
                     "district_id": district_id
                 },
                 success: function(response) {
-                //
+                    //
                     var table = '';
                     $.each(response, function(key, value) {
                         table += '<tr>';

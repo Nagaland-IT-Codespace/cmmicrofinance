@@ -42,11 +42,10 @@ class HomeController extends Controller
     }
     public function getDashboardTable(Request $request){
         if($request->district_id=='ALL'){
-            $data = $this->dashboardService->getSchemeDisbursedAmountByDistrict();
+            $data = $this->dashboardService->getSchemeDisbursedAmountByDistrict(null);
         }{
             $data = $this->dashboardService->getSchemeDisbursedAmountByDistrict($request->district_id);
         }
-        $data = $this->dashboardService->getSchemeDisbursedAmountByDistrict($request->district_id);
         // return json
         return response()->json($data);
 
