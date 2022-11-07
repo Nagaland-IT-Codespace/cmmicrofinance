@@ -46,6 +46,9 @@ class UserMasterController extends Controller
             return redirect()->back();
         }
     }
+    public function changePasswordForm(){
+        return view('users.changePassword');
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -28,6 +28,7 @@ class User extends Authenticatable
         'dept',
         'district',
         'mobile',
+        'bank'
     ];
 
     /**
@@ -48,4 +49,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    // department relationship
+    public function departmentName()
+    {
+        return $this->belongsTo(DeptMaster::class, 'dept', 'id');
+    }
+    // district relationship
+    public function districtName()
+    {
+        return $this->belongsTo(DistrictMaster::class, 'district', 'id');
+    }
+    // bank
+    public function bankName()
+    {
+        return $this->belongsTo(BankMaster::class, 'bank', 'id');
+    }
 }
