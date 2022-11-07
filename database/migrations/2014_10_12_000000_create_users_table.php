@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->string('dept')->nullable();
             $table->string('district')->nullable();
+            $table->string('bank')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
