@@ -79,10 +79,12 @@
                                 <div class="form-group col-md-6">
                                     <label for="dept">Department</label>
                                     <select class="form-control" id="dept" name="dept">
-                                        <option value="{{ $data->dept }}" selected>{{ $data->dept }}</option>
+                                        {{-- <option value="{{ $data->dept }}" selected>{{ $data->dept }}</option> --}}
                                         <option disabled> -- Select -- </option>
                                         @foreach ($depts as $dept)
-                                            <option value="{{ $dept->id }}">{{ $dept->name }}</option>
+                                            <option value="{{ $dept->id }}"
+                                                {{ $dept->id == $data->dept ? 'selected' : '' }}>
+                                                {{ $dept->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
