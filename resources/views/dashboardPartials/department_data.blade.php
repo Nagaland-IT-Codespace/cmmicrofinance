@@ -11,7 +11,9 @@
                         <div class="col-lg-6">
                             <select class="form-control" id="inputDefault">
                                 <option selected>---Select District----</option>
-                                <option value="">State</option>
+                                @if (Auth::user()->role != 'DC')
+                                    <option value="">State</option>
+                                @endif
                                 @foreach ($districts as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
