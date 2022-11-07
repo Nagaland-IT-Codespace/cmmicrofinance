@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card-header">
         <span class="card-title">Banks</span>
-        @if(Auth::User()->role == 'BANK')
+        @if(Auth::User()->role == 'LBANK')
         <a href="{{ route('bankMaster.create') }}"class="btn btn-primary btn-sm" style="float:right">Add New Bank</a>
         @endif
       </div>

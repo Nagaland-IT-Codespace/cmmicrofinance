@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header">
                     <span class="card-title">Manage Subsidy</span>
-                    @if (Auth::User()->role == 'BANK')
+                    @if (Auth::User()->role == 'SBANK'|| Auth::User()->role == 'LBANK')
                         <a href="{{ route('subsidy.create') }}"class="btn btn-primary btn-sm" style="float:right">Add New
                             Subsidy Request</a>
                     @endif
