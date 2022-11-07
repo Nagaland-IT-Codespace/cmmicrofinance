@@ -3,7 +3,7 @@
     <div class="row mt-5">
         {{-- <x-data-cards/> --}}
         @include('dashboardPartials.info_cards', ['data' => $data])
-        @include('dashboardPartials.department_data')
+        @include('dashboardPartials.department_data', ['districts' => $districts])
     </div>
 
 

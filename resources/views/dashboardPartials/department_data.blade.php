@@ -11,12 +11,11 @@
                         <div class="col-lg-6">
                             <select class="form-control" id="inputDefault">
                                 <option value="">Select</option>
-                                <option value="Kohima">Kohima</option>
-                                <option value="Dimapur">Dimapur</option>
-                                <option value="Mokokchung">Mokokchung</option>
-                                <option value="Mon">Mon</option>
-                                <option value="Tuensang">Tuensang</option>
-                                <option value="Wokha">Wokha</option>
+                                <option value="ALL">State</option>
+                                @foreach ($districts as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+
                             </select>
                         </div>
                     </div>
@@ -29,14 +28,44 @@
                 <thead>
                     <tr>
                         <th>Scheme name</th>
-                        <th>Fund Allocated</th>
-                        <th>Fund Utilised</th>
+                        <th>Fund Disbursed</th>
                         <th>Department</th>
-                        <th>Date</th>
                     </tr>
                 </thead>
+                <tbody id="api_table">
+
+                </tbody>
             </table>
         </div>
     </div>
 
 </div>
+{{-- getDashboardTable ajax --}}
+<script>
+    $(document).ready(function() {
+        $('#inputDefault').change(function() {
+            var district_id = $(this).val();
+            $.ajax({
+                url: "{{ route('getDashboardTable') }}",
+                type: "POST",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "district_id": district_id
+                },
+                success: function(response) {
+                //
+                    var table = '';
+                    $.each(response, function(key, value) {
+                        table += '<tr>';
+                        table += '<td>' + value.scheme_name + '</td>';
+                        table += '<td>' + value.amount_disbursed + '</td>';
+                        table += '<td>' + value.department + '</td>';
+                        table += '</tr>';
+                    });
+                    $('#api_table').html(table);
+
+                }
+            });
+        });
+    });
+</script>

@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth']],function()
 {
     // admin routes
     Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'homeRedirector' ])->name('dashboard');
+    // getDashboardTable
+    Route::post('getDashboardTable', [App\Http\Controllers\HomeController::class, 'getDashboardTable' ])->name('getDashboardTable');
     Route::resource('schemeMaster', App\Http\Controllers\SchemeMasterController::class);
     Route::resource('deptMaster', App\Http\Controllers\DeptMasterController::class);
     Route::resource('districtMaster', App\Http\Controllers\DistrictMasterController::class);
