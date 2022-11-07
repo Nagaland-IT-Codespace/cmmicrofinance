@@ -4,6 +4,7 @@
     <li><a class="nav-link scrollto" href="#about">About</a></li>
     <li><a class="nav-link scrollto" href="#services">Downloads</a></li>
     <li><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
+    <li><a class="nav-link" href="{{route('notifications')}}">Notifications</a></li>
     <li>
       @auth
       <a class="scrollto nav-link" href={{url('/login')}}>Dashboard</a>
