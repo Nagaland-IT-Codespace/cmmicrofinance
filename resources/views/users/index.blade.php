@@ -44,8 +44,8 @@
                                     <td>
                                         <a href="{{ route('userMaster.edit', $item->id) }}"
                                             class="btn btn-sm btn-primary">Edit User</a>
-                                        <a href="#" class="btn btn-sm btn-danger">Delete User</a>
-                                        <a href="#" class="btn btn-sm btn-success">Change Pass</a>
+                                        {{-- <a href="#" class="btn btn-sm btn-danger">Delete User</a>
+                                        <a href="#" class="btn btn-sm btn-success">Change Pass</a> --}}
                                     </td>
                                 </tr>
                             @endforeach
