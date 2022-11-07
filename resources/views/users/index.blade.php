@@ -33,11 +33,16 @@
                                     <td>{{ $item->email }}</td>
                                     @if (Auth::User()->role == 'LBANK')
                                         @isset($item->bank)
-                                            <td>{{ $item->bankName->name }} : {{$item->bankName->branch}}</td>
+                                            <td>{{ $item->bankName->name }} : {{ $item->bankName->branch }}</td>
+                                            {{-- else isset --}}
+                                        @else
+                                            <td>Not Assigned</td>
                                         @endisset
                                     @else
                                         @isset($item->dept)
                                             <td>{{ $item->departmentName->name }}</td>
+                                        @else
+                                            <td>Not Assigned</td>
                                         @endisset
                                     @endif
                                     <td>{{ $item->districtName->name }}</td>
