@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BankMaster;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\DistrictMaster;
@@ -19,7 +20,12 @@ class UserMasterController extends Controller
      */
     public function index()
     {
-        $data = User::all();
+        if (Auth::user()->role == 'LBANK') {
+            $data = User::where('role', 'SBANK')->get();
+        } else {
+            // where not equal to LBANK OR SBANK
+            $data = User::where('role', '!=', 'LBANK')->where('role', '!=', 'SBANK')->get();
+        }
         return view('users.index', [
             'data' => $data,
         ]);
@@ -48,13 +54,16 @@ class UserMasterController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->role == 'BANK') {
-
+        $districts = DistrictMaster::orderBy('name', 'ASC')->get();
+        $depts = DeptMaster::orderBy('name', 'ASC')->get();
+        if (Auth::user()->role == 'LBANK') {
+            $banks = BankMaster::orderBy('name', 'ASC')->get();
+            return view('users.add', [
+                'districts' => $districts,
+                'depts' => $depts,
+                'banks' => $banks,
+            ]);
         } else {
-            $districts = DistrictMaster::orderBy('name', 'ASC')->get();
-            $depts = DeptMaster::orderBy('name', 'ASC')->get();
-
-
             return view('users.add', [
                 'districts' => $districts,
                 'depts' => $depts,
@@ -70,17 +79,20 @@ class UserMasterController extends Controller
      */
     public function store(Request $request)
     {
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
             'password' => Hash::make('Password123#'),
-            'role' => $request->role,
+            // check role by auth role
+            'role' => Auth::user()->role == 'LBANK' ? 'SBANK' : $request->role,
             'dept' => $request->dept,
             'district' => $request->district,
+            'bank' => $request->bank,
         ]);
 
-        Session::flash('user-added', 1);
+        Session::flash('success', 'User created successfully');
         return redirect()->route('userMaster.index');
     }
 
@@ -106,12 +118,21 @@ class UserMasterController extends Controller
         $data = User::find($id);
         $districts = DistrictMaster::orderBy('name', 'ASC')->get();
         $depts = DeptMaster::orderBy('name', 'ASC')->get();
-
-        return view('users.edit', [
-            'districts' => $districts,
-            'depts' => $depts,
-            'data' => $data,
-        ]);
+        if (Auth::user()->role == 'LBANK') {
+            $banks = BankMaster::orderBy('name', 'ASC')->get();
+            return view('users.edit', [
+                'data' => $data,
+                'districts' => $districts,
+                'depts' => $depts,
+                'banks' => $banks,
+            ]);
+        } else {
+            return view('users.edit', [
+                'districts' => $districts,
+                'depts' => $depts,
+                'data' => $data,
+            ]);
+        }
     }
 
     /**
@@ -128,12 +149,13 @@ class UserMasterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
-            'role' => $request->role,
+            'role' => Auth::user()->role == 'LBANK' ? 'SBANK' : $request->role,
             'dept' => $request->dept,
             'district' => $request->district,
+            'bank' => $request->bank,
         ]);
 
-        Session::flash('user-updated', 1);
+        Session::flash('success', 'User updated successfully');
         return redirect()->route('userMaster.index');
     }
 

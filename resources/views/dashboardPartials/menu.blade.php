@@ -56,7 +56,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="{{route('post.index')}}">
+                        <a class="nav-link" href="{{ route('post.index') }}">
                             <i class='bx bxs-report'></i>
                             <span>Post</span>
                         </a>
@@ -78,47 +78,54 @@
                     </li>
                 @endif
 
-                @if(Auth::User()->role == 'BANK')
-                <li>
-                    <a class="nav-link" href="{{ route('bankMaster.index') }}">
-                        <i class='bx bx-notepad'></i>
-                        <span>Manage Banks</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="{{ route('bankAppList') }}">
-                        <i class='bx bx-notepad'></i>
-                        <span>Manage Applications</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="{{ route('disbursement.index')}}">
-                        <i class='bx bx-notepad'></i>
-                        <span>Manage Disbursements</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="{{ route('subsidy.index') }}">
-                        <i class='bx bx-notepad'></i>
-                        <span>Manage Subsidies</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="{{ route('misUtilization.index') }}">
-                        <i class='bx bx-notepad'></i>
-                        <span>Manage MisUtilizations</span>
-                    </a>
-                </li>
-
+                @if (Auth::User()->role == 'LBANK')
+                    <li>
+                        <a class="nav-link" href="{{ route('bankMaster.index') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span>Manage Banks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('userMaster.index') }}">
+                            <i class="bx bx-user" aria-hidden="true"></i>
+                            <span>User Management</span>
+                        </a>
+                    </li>
                 @endif
-                @if(Auth::User()->role == 'DEPT')
-                <li>
-                    <a class="nav-link" href="{{ route('grievance.index') }}">
-                        {{-- Grievance icon --}}
-                        <i class='bx bx-help-circle'></i>
-                        <span>Grievances</span>
-                    </a>
-                </li>
+                @if (Auth::User()->role == 'SBANK' || Auth::User()->role == 'LBANK')
+                    <li>
+                        <a class="nav-link" href="{{ route('bankAppList') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span>Manage Applications</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('disbursement.index') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span>Manage Disbursements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('subsidy.index') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span>Manage Subsidies</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('misUtilization.index') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span>Manage MisUtilizations</span>
+                        </a>
+                    </li>
+                @endif
+                @if (Auth::User()->role == 'DEPT')
+                    <li>
+                        <a class="nav-link" href="{{ route('grievance.index') }}">
+                            {{-- Grievance icon --}}
+                            <i class='bx bx-help-circle'></i>
+                            <span>Grievances</span>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </nav>
