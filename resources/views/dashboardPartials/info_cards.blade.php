@@ -2,11 +2,9 @@
 @php
     $col = 12 / count($data);
 @endphp
-
-
 @foreach ($data as $item)
-    <div class="col-md-{{$col}}">
-        <section class="card mb-4">
+    <div class="col-md-{{ $col }} drag">
+        <section class="card mb-4 " >
             <div class="card-body bg-{{ $item['color'] }}">
                 <div class="widget-summary">
                     <div class="widget-summary-col widget-summary-col-icon">
@@ -29,7 +27,5 @@
                 </div>
             </div>
         </section>
-
-
     </div>
 @endforeach
