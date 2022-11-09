@@ -21,10 +21,10 @@ class MisutilizationController extends Controller
     {
         if (Auth::user()->role == 'LBANK') {
             $data = Misutilization::all();
-            return view('misutilization.index', compact('data'));
+            return view('misUtilization.index', compact('data'));
         } else {
             $data = Misutilization::where('bank_id', Auth::user()->bank)->get();
-            return view('misutilization.index', compact('data'));
+            return view('misUtilization.index', compact('data'));
         }
     }
 
@@ -37,10 +37,10 @@ class MisutilizationController extends Controller
     {
         if (Auth::user()->role == 'LBANK') {
             $appForms = ApplicationForm::where('status', 'SANCTIONED')->get();
-            return view('misutilization.add', compact('appForms'));
+            return view('misUtilization.add', compact('appForms'));
         } else {
             $appForms = ApplicationForm::where('status', 'SANCTIONED')->where('bank_id', Auth::user()->bank)->get();
-            return view('misutilization.add', compact('appForms'));
+            return view('misUtilization.add', compact('appForms'));
         }
     }
 
