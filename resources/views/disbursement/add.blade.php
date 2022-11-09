@@ -15,7 +15,7 @@
                   <label for="app_id">Beneficiary Name</label>
                   <select type="text" class="form-control" id="app_id" name="app_id" required>
                     <option selected disabled>--Select--</option>
-                    @foreach($appForms as $item)
+                    @foreach($data as $item)
                     <option value="{{ $item->id }}">{{ $item->name_of_proposee }}</option>
                     @endforeach
                   </select>
