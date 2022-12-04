@@ -1,6 +1,6 @@
 {{-- set bootstrap column from size --}}
 @php
-    $col = 12 / count($data);
+    $col = 4;
 @endphp
 @foreach ($data as $item)
     <div class="col-md-{{ $col }} drag">
