@@ -40,6 +40,7 @@
                                         <option value="ADMIN">ADMIN</option>
                                         <option value="DC">DC</option>
                                         <option value="DEPT">DEPT</option>
+                                        <option value="STATE">STATE</option>
                                     </select>
                                 </div>
                             @endif

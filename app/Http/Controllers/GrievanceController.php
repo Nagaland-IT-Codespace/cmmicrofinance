@@ -19,7 +19,7 @@ class GrievanceController extends Controller
      */
     public function index()
     {
-        if (Auth::User()->role == 'ADMIN') {
+        if (Auth::User()->role == 'ADMIN' || Auth::User()->role=='STATE') {
             $data = Grievance::orderBy('created_at', 'ASC')->get();
         }
 

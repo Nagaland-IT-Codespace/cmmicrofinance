@@ -23,6 +23,10 @@ class HomeController extends Controller
                 $data = $this->dashboardService->getDashBoardInfoCardForAdmin();
                 $districts = DistrictMaster::all();
                 break;
+            case 'STATE':
+                $data = $this->dashboardService->getDashBoardInfoCardForAdmin();
+                $districts = DistrictMaster::all();
+                break;
             case 'DEPT':
                 $data = $this->dashboardService->getDashBoardInfoCardForDC();
                 $districts = DistrictMaster::all();

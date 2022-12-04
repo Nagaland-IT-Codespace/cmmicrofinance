@@ -127,6 +127,39 @@
                         </a>
                     </li>
                 @endif
+                @if (Auth::User()->role == 'STATE')
+                    <li>
+                        <a class="nav-link" href="{{ route('grievance.index') }}">
+                            {{-- Grievance icon --}}
+                            <i class='bx bx-help-circle'></i>
+                            <span>Grievances</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('applicationForm.index') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span>Application Forms</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('disbursement.index') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span> Disbursements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('subsidy.index') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span>Subsidies</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('misUtilization.index') }}">
+                            <i class='bx bx-notepad'></i>
+                            <span>MisUtilizations</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
 

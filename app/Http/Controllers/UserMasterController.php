@@ -87,7 +87,7 @@ class UserMasterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
-            'password' => Hash::make('Password123#'),
+            'password' => Hash::make('Nagaland@123#'),
             // check role by auth role
             'role' => Auth::user()->role == 'LBANK' ? 'SBANK' : $request->role,
             'dept' => $request->dept,
