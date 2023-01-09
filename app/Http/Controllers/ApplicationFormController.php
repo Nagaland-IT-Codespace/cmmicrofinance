@@ -34,10 +34,10 @@ class ApplicationFormController extends Controller
                 })->get();
                 break;
             case 'SBANK':
-                $data = ApplicationForm::where('bank_id', Auth::user()->bank)->get();
+                $data = ApplicationForm::where('district_id', Auth::user()->district)->get();
                 break;
             case 'LBANK':
-                $data = ApplicationForm::where('bank_id', Auth::user()->bank)->get();
+                $data = ApplicationForm::all();
                 break;
             default:
                 $data = [];
