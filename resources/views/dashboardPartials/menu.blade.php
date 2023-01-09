@@ -79,12 +79,7 @@
                 @endif
 
                 @if (Auth::User()->role == 'LBANK')
-                    <li>
-                        <a class="nav-link" href="{{ route('bankMaster.index') }}">
-                            <i class='bx bx-notepad'></i>
-                            <span>Manage Banks</span>
-                        </a>
-                    </li>
+
                     <li>
                         <a class="nav-link" href="{{ route('userMaster.index') }}">
                             <i class="bx bx-user" aria-hidden="true"></i>
@@ -93,6 +88,12 @@
                     </li>
                 @endif
                 @if (Auth::User()->role == 'SBANK' || Auth::User()->role == 'LBANK')
+                <li>
+                    <a class="nav-link" href="{{ route('bankMaster.index') }}">
+                        <i class='bx bx-notepad'></i>
+                        <span>Manage Banks</span>
+                    </a>
+                </li>
                     <li>
                         <a class="nav-link" href="{{ route('bankAppList') }}">
                             <i class='bx bx-notepad'></i>

@@ -14,7 +14,8 @@ class BankActivitiesController extends Controller
     public function bankAppList()
     {
         if (Auth::user()->role == 'SBANK') {
-            $data = ApplicationForm::where('bank_id', Auth::user()->bank)->get();
+            // $data = ApplicationForm::where('bank_id', Auth::user()->bank)->get();
+            $data = ApplicationForm::where('district_id', Auth::user()->district)->get();
             return view('bankActivity.index', compact('data'));
         } else {
             $data = ApplicationForm::all();
