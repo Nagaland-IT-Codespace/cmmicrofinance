@@ -39,6 +39,9 @@ class ApplicationFormController extends Controller
             case 'LBANK':
                 $data = ApplicationForm::all();
                 break;
+            case 'STATE':
+                $data = ApplicationForm::all();
+                break;
             default:
                 $data = [];
                 break;
