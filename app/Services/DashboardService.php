@@ -138,15 +138,20 @@ class DashboardService
     // getDashBoardInfoCardForSBANK
     public function getDashBoardInfoCardForSBANK()
     {
-        $approved_count = ApplicationForm::where('status', 'APPROVED')->whereHas('scheme', function ($q) {
-            $q->where('bank_id', Auth::user()->bank);
-        })->count();
-        $sanctioned_count = ApplicationForm::where('status', 'SANCTIONED')->whereHas('scheme', function ($q) {
-            $q->where('bank_id', Auth::user()->bank);
-        })->count();
+        // $approved_count = ApplicationForm::where('status', 'APPROVED')->whereHas('scheme', function ($q) {
+        //     $q->where('bank_id', Auth::user()->bank);
+        // })->count();
+        $approved_count = ApplicationForm::where('status', 'APPROVED')->where('district_id', Auth::user()->district)->count();
+        // $sanctioned_count = ApplicationForm::where('status', 'SANCTIONED')->whereHas('scheme', function ($q) {
+        //     $q->where('bank_id', Auth::user()->bank);
+        // })->count();
+        $sanctioned_count = ApplicationForm::where('status', 'SANCTIONED')->where('district_id', Auth::user()->district)->count();
 
+        // $amount_disbursed = Disbursement::whereHas('appForm', function ($q) {
+        //     $q->where('bank_id', Auth::user()->bank);
+        // })->sum('amount_disbursed');
         $amount_disbursed = Disbursement::whereHas('appForm', function ($q) {
-            $q->where('bank_id', Auth::user()->bank);
+            $q->where('district_id', Auth::user()->district);
         })->sum('amount_disbursed');
         $scheme_count = SchemeMaster::count();
         return [
@@ -236,7 +241,6 @@ class DashboardService
             $scheme_array[$key]['department'] = DeptMaster::where('id', $value->dept_id)->first()->name;
         }
         return $scheme_array;
-
     }
 
 
