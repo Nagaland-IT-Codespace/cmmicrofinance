@@ -1,19 +1,21 @@
 <div class="col-md-12 mb-4">
     <div class="card">
         <div class="card-header">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="district">Select a District</label>
-                        <select class="form-control" id="district" wire:model="district">
-                            <option value="ALL" >All</option>
-                            @foreach ($districts as $d)
-                                <option value="{{ $d->id }}">{{ $d->name }}</option>
-                            @endforeach
-                        </select>
+            @if (in_array(Auth::user()->role, $adminroles))
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="district">Select a District</label>
+                            <select class="form-control" id="district" wire:model="district">
+                                <option value="ALL">All</option>
+                                @foreach ($districts as $d)
+                                    <option value="{{ $d->id }}">{{ $d->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
         <div class="card-body">
 
