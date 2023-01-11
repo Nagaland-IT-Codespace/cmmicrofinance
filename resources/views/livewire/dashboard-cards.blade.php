@@ -21,7 +21,7 @@
 
             <div class="row">
 
-                <div class="col-md-6 mb-4">
+                <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body bg-success">
                             <div class="widget-summary">
@@ -45,9 +45,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
+                <div class="col-md-4 mb-4">
                     <div class="card">
-                        <div class="card-body bg-success">
+                        <div class="card-body bg-primary">
                             <div class="widget-summary">
                                 <div class="widget-summary-col widget-summary-col-icon">
                                     <div class="summary-icon">
@@ -69,9 +69,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card">
-                        <div class="card-body bg-success">
+                        <div class="card-body bg-warning">
                             <div class="widget-summary">
                                 <div class="widget-summary-col widget-summary-col-icon">
                                     <div class="summary-icon">
@@ -93,9 +93,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card">
-                        <div class="card-body bg-success">
+                        <div class="card-body bg-info">
                             <div class="widget-summary">
                                 <div class="widget-summary-col widget-summary-col-icon">
                                     <div class="summary-icon">
