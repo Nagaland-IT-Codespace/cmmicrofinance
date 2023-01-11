@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                     <div class="summary-footer">
-                                        <a class="text-uppercase" href="">(view all)</a>
+                                        <a class="text-uppercase"  href="{{route('applicationForm.index')}}">(view all)</a>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                     <div class="summary-footer">
-                                        <a class="text-uppercase" href="">(view all)</a>
+                                        <a class="text-uppercase" href="{{route('applicationForm.index')}}">(view all)</a>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
                                     <div class="summary-footer">
-                                        <a class="text-uppercase" href="">(view all)</a>
+                                        <a class="text-uppercase" href="{{route('disbursement.index')}}">(view all)</a>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                                         </div>
                                     </div>
                                     <div class="summary-footer">
-                                        <a class="text-uppercase" href="">(view all)</a>
+                                        <a class="text-uppercase" href="{{route('schemeMaster.index')}}">(view all)</a>
                                     </div>
                                 </div>
                             </div>
