@@ -3,9 +3,10 @@
     <div class="row mt-5">
         {{-- <x-data-cards/> --}}
         @livewire('dashboard-cards')
+        @livewire('scheme-wise-data')
 
         {{-- @include('dashboardPartials.info_cards', ['data' => $data]) --}}
-        @include('dashboardPartials.department_data', ['districts' => $districts])
+        {{-- @include('dashboardPartials.department_data', ['districts' => $districts]) --}}
     </div>
 
 

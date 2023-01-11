@@ -232,6 +232,8 @@ class DashboardService
         $scheme_array = [];
         foreach ($scheme as $key => $value) {
             $scheme_array[$key]['scheme_name'] = $value->scheme_name;
+            $cheme_array[$key]['application_approved'] = ApplicationForm::where('scheme_id', $value->id)->where('status', 'APPROVED')->count();
+            $scheme_array[$key]['application_sanctioned'] = ApplicationForm::where('scheme_id', $value->id)->where('status', 'SANCTIONED')->count();
             $scheme_array[$key]['amount_disbursed'] = Disbursement::whereHas('appForm', function ($q) use ($value, $district_id) {
                 $q->where('scheme_id', $value->id);
                 if ($district_id) {
